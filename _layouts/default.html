@@ -3,16 +3,6 @@
 
   {% include head.html %}
 
-  <head>
-  <style>
-    @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
-    body {
-      font-family: 'Yanone Kaffeesatz';
-      font-weight: 400;
-    }
-    </style>
-  </head>
-
   {% if site.theme_mode == 'markdown' %}
   <body class="hack">
   {% elsif site.theme_mode == 'standard' %}
@@ -20,6 +10,18 @@
   {% elsif site.theme_mode == 'dark' %}
   <body class="hack dark">
   {% endif %}
+
+<!-- TRY TO CHANGE FONTS!!! -->
+    <head>
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      body {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: 400;
+      }
+      </style>
+    </head>
+    <!-- TRY TO CHANGE FONTS!!! -->
 
     <!-- {% include github-ribbon.html %} -->
 
