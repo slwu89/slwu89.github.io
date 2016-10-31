@@ -6,9 +6,9 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: jekyll-theme-hackcss
+title: Make epidemiology great again!
 description: > # this means to ignore newlines until "baseurl:"
-  A minimalistic theme for Jekyll, based on hack.css
+  Sean Wu's personal website.
 repository: https://github.com/slwu89/slwu89.github.io
 baseurl: /main  # the subpath of your site, e.g. /blog
 url: https://slwu89.github.io  # the base hostname & protocol for your site
