@@ -35,8 +35,10 @@
   &-icon {
     display: inline-block;
     vertical-align: middle;
-    width: $icon-size;
-    height: $icon-size;
+    // width: $icon-size;
+    width: 50px;
+    // height: $icon-size;
+    height: 50px;
 
     > svg {
       width: $icon-size;
