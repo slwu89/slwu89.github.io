@@ -21,11 +21,11 @@ sass:
   style: compressed
 
 # Theme settings
-theme_mode: dark  # choices are: 'dark', 'standard', 'markdown'
+theme_mode: markdown  # choices are: 'dark', 'standard', 'markdown'
 
 # Customizations
-your_name: wemake.services
-email: mail@sobolevn.me
+your_name: Sean Wu
+email: slwood89@gmail.com
 
 navigation:
   - text: Home
