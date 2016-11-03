@@ -29,7 +29,7 @@ email: slwood89@gmail.com
 
 navigation:
   - text: Home
-    url: /
+    url: 
   - text: Docs
     url: /docs
   - text: Examples
