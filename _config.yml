@@ -8,7 +8,7 @@
 # Site settings
 title: Make epidemiology great again!
 description:
-  "Sean Wu, MPH \n\ PhD Student at UC Berkeley & Graduate Student Researcher at UC San Francisco"
+  "PhD Student at UC Berkeley & Graduate Student Researcher at UC San Francisco"
 repository: https://github.com/slwu89/slwu89.github.io
 baseurl:   # the subpath of your site, e.g. /blog
 url: https://slwu89.github.io  # the base hostname & protocol for your site
@@ -24,7 +24,7 @@ sass:
 theme_mode: markdown  # choices are: 'dark', 'standard', 'markdown'
 
 # Customizations
-your_name: Sean Wu
+your_name: Sean Wu, MPH
 email: slwood89@gmail.com
 
 navigation:
