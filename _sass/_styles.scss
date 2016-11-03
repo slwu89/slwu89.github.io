@@ -12,6 +12,16 @@
     padding-top: 20px;
   }
 
+  // projects.html
+
+  &-projects {
+    padding-right: 20px;
+  }
+
+  @at-root .hack &-navigation-heading {
+    padding-top: 20px;
+  }
+
   // footer.html
 
   @at-root body &-footer {

@@ -24,7 +24,7 @@ sass:
 theme_mode: markdown  # choices are: 'dark', 'standard', 'markdown'
 
 # Customizations
-your_name: Sean Wu, MPH
+your_name: Sean Wu
 email: slwood89@gmail.com
 
 navigation:
