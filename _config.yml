@@ -29,9 +29,7 @@ email: slwood89@gmail.com
 
 navigation:
   - text: Home
-    url:
-  - text: Docs
-    url: /docs
+    url: /index.html
   - text: Examples
     url: /images/gillespieCode.png
   - text: Dynamic Programming
