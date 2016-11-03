@@ -31,7 +31,7 @@ navigation:
   - text: Home
     url: /index.html
   - text: Examples
-    url: /main/images/gillespieCode.png
+    url: /examples.html
   - text: Dynamic Programming
     url: http://slwu89.shinyapps.io/dynProgPatch
 
