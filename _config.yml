@@ -8,7 +8,8 @@
 # Site settings
 title: Make epidemiology great again!
 description: > # this means to ignore newlines until "baseurl:"
-  Sean Wu, UC Berkeley & UC San Francisco
+  Sean Wu, MPH
+  PhD Student at UC Berkeley & Graduate Student Researcher at UC San Francisco
 repository: https://github.com/slwu89/slwu89.github.io
 baseurl:   # the subpath of your site, e.g. /blog
 url: https://slwu89.github.io  # the base hostname & protocol for your site
@@ -31,7 +32,7 @@ navigation:
   - text: Home
     url: /index.html
   - text: Examples
-    url: /examples.html
+    url: /pages/examples.html
   - text: Dynamic Programming
     url: http://slwu89.shinyapps.io/dynProgPatch
 
