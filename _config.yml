@@ -31,7 +31,7 @@ navigation:
   - text: Home
     url: /index.html
   - text: Examples
-    url: /pages/examples.html
+    url: /main/pages/examples.html
   - text: Dynamic Programming
     url: http://slwu89.shinyapps.io/dynProgPatch
 
