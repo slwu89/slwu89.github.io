@@ -12,16 +12,6 @@
     padding-top: 20px;
   }
 
-  // projects.html
-
-  &-projects {
-    padding-right: 20px;
-  }
-
-  @at-root .hack &-projects.heading {
-    padding-top: 20px;
-  }
-
   // footer.html
 
   @at-root body &-footer {
