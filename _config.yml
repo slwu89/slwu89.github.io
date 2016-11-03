@@ -30,8 +30,10 @@ email: slwood89@gmail.com
 navigation:
   - text: Home
     url: /index.html
-  - text: Examples
+  - text: Image Test
     url: /main/images/gillespieCode.png
+  - text: Examples Test
+    url: /main/pages/examples.html
   - text: Dynamic Programming
     url: http://slwu89.shinyapps.io/dynProgPatch
 
