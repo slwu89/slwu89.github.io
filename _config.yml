@@ -34,7 +34,7 @@ navigation:
     url: /docs
   - text: Examples
     url: /images/gillespieCode.png
-    - text: Dynamic Programming
+  - text: Dynamic Programming
     url: http://slwu89.shinyapps.io/dynProgPatch
 
 projects:
