@@ -31,7 +31,7 @@ navigation:
   - text: Home
     url: /index.html
   - text: Examples
-    url: /images/gillespieCode.png
+    url: /main/images/gillespieCode.png
   - text: Dynamic Programming
     url: http://slwu89.shinyapps.io/dynProgPatch
 
@@ -56,8 +56,8 @@ social:
     username: slwu89
     link: https://github.com/slwu89
   - service: twitter
-    username: sobolevn
-    link: https://twitter.com/sobolevn
+    username: slwu89
+    link: https://twitter.com/slwu89
 
 # Plugins
 gems:
