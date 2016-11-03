@@ -29,13 +29,13 @@ email: slwood89@gmail.com
 
 navigation:
   - text: Home
-    url: 
+    url:
   - text: Docs
     url: /docs
   - text: Examples
     url: /images/gillespieCode.png
   - text: Dynamic Programming
-    link: http://slwu89.shinyapps.io/dynProgPatch
+    url: http://slwu89.shinyapps.io/dynProgPatch
 
 projects:
   - name: git-secret
