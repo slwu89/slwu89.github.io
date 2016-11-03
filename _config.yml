@@ -35,6 +35,8 @@ navigation:
   - text: Examples
     # url: /examples
     url: /images/gillespieCode.png
+    - text: Dynamic Programming
+    url: http://slwu89.shinyapps.io/dynProgPatch
 
 projects:
   - name: git-secret
