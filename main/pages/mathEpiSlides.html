@@ -179,7 +179,7 @@ layout: false
 .right-column[
 The most basic models are systems of ordinary or partial differential equations.
 
-<img src="images/sirEqns.png" height="100">
+<img src="/main/images/sirEqns.png" height="100">
 
 -The SIR model is a classic model in mathematical epidemiology. Despite its simplicity, we can derive many useful insights from it.
 
@@ -193,7 +193,7 @@ The most basic models are systems of ordinary or partial differential equations.
 
 ]
 
-<img src="images/sirODE.png" height="200" width="350">
+<img src="/main/images/sirODE.png" height="200" width="350">
 ---
 .left-column[
 ## Mathematical Models in Epidemiology
@@ -206,7 +206,7 @@ But differential equation models can be much more complicated:
 
 Complexity can model multiple pathogens, multiple host populations, multiple vector populations:
 
-<img src="images/swarmJacobian.png" height="120" width="560">
+<img src="/main/images/swarmJacobian.png" height="120" width="560">
 
 Often we are most interested in how models can be fit to data. By fitting models to data we can:
 
@@ -225,9 +225,9 @@ Often we are most interested in how models can be fit to data. By fitting models
 .right-column[
 What do different models look like in "reality"? What are we really trying to discriminate between?
 
-<img src="images/responseSig.png" height="160" width="300">
+<img src="/main/images/responseSig.png" height="160" width="300">
 
-<img src="images/responseHolling.png" height="140" width="300">
+<img src="/main/images/responseHolling.png" height="140" width="300">
 
 - Two different rate limiting functions for how mosquito life cycle parameters are affected by vector interventions for malaria control.
 
@@ -252,7 +252,7 @@ Despite their usefulness, sometimes deterministic models do not provide an accur
 - Cellular Automata:
 
   - Often used to model the dynamics of competing pathogens (such as development of drug-resistance), discrete-time (usually), and explicitly spatial.
-  <img src="images/migrationCA.gif" height="240" width="240">
+  <img src="/main/images/migrationCA.gif" height="240" width="240">
 
 ]
 ---
@@ -265,7 +265,7 @@ Network Models encompass a vast variety of models. They can run in continuous or
 
 -Key to network models is the idea of nodes and edges. Nodes can represent the smallest unit of interest (person, community, cell, etc), and edges can represent distance, social proximity, and other ways that nodes interact.
 
-  <iframe src="images/sirERGM.html" width="460px" height="460px" frameBorder="0"></iframe>
+  <iframe src="/main/images/sirERGM.html" width="460px" height="460px" frameBorder="0"></iframe>
 ]
 ---
 .left-column[
@@ -281,7 +281,7 @@ In population health we are often concerned with the flow of individuals between
 
 We fitted gravity and radiation models with MCMC to survey and cell phone data in Burkina Faso, Mali, Tanzania, and Zambia.
 
-<img src="images/movement.png" width="429" height="274">
+<img src="/main/images/movement.png" width="429" height="274">
 ]
 ---
 .left-column[
@@ -289,7 +289,7 @@ We fitted gravity and radiation models with MCMC to survey and cell phone data i
 ## Human Movement Models
 ]
 .right-column[
-<img src="images/movementEmpirical.png" width="594" height="435">
+<img src="/main/images/movementEmpirical.png" width="594" height="435">
 ]
 ---
 .left-column[
@@ -299,7 +299,7 @@ We fitted gravity and radiation models with MCMC to survey and cell phone data i
 .right-column[
 Agent-based models are perhaps the most complex approach to modeling. These model interactions among individual agents in a simulation. The model below (MASH: Modular Analysis &amp; Simulation for Human Health) is being jointly developed at UCSF, Berkeley, and UW.
 
-<img src="images/MASH.gif" height="480" width="480">
+<img src="/main/images/MASH.gif" height="480" width="480">
 ]
 ---
 .left-column[
@@ -311,7 +311,7 @@ Agent-based models can help us understand extremely detailed features of disease
 
 -Below is a simulated transmission chain of <i>Plasmodium falciparum</i> parasite in a community. We can see how distribution of hosts and vectors changes at each generation.
 
-  <iframe src="images/MASHchain.html" width="460px" height="460px" frameBorder="0"></iframe>
+  <iframe src="/main/images/MASHchain.html" width="460px" height="460px" frameBorder="0"></iframe>
 ]
 ---
 .left-column[
@@ -321,7 +321,7 @@ Agent-based models can help us understand extremely detailed features of disease
 .right-column[
 Agent-based models are incredibly computationally intensive, compounding the problem of fitting stochastic models to data.
 
-<img src="images/MASHsample.png" width="600" height="478">
+<img src="/main/images/MASHsample.png" width="600" height="478">
 ]
 ---
 template: inverse
@@ -357,9 +357,7 @@ Bayesian Inference depends on Bayes' thereom:
 ]
 Adaptive MCMC algorithm exploring two dimensional parameter space
 
-<img src="images/mcmcTrace.gif" width="480" height="480">
-<!-- <img src="http://i.imgur.com/XoYfbD2.gif" width="480" height="480"> -->
-
+<img src="/main/images/mcmcTrace.gif" width="480" height="480">
 ---
 .left-column[
   ## Bayesian Inference
@@ -367,7 +365,7 @@ Adaptive MCMC algorithm exploring two dimensional parameter space
 ]
 But...fancy algorithms run into problems too. It's important to know how to diagnose these problems, and know if it is bad data, unrealistic model, or a poorly behaved MCMC run.
 
-<img src="images/mcmcSampling.png" width="500" height="500">
+<img src="/main/images/mcmcSampling.png" width="500" height="500">
 
 ---
 .left-column[
@@ -393,14 +391,7 @@ Particle Filters (Sequential Monte Carlo) are algorithms that allow us to estima
 
 - The likelihood can be estimated (idea of Monte Carlo techniques: expectations of functions can be approximated by sample means of many random variables): <div lang="latex"> \hat{P}(Y|\theta) = P(y_{1} | \theta) \times \prod_{t=1}^{T-1}P(y_{t+1}|y_{t},\theta) </div>
 ]
-<img src="images/particleFilter.gif" height="400" width="400">
----
-.left-column[
-  ## Conceptual Space
-]
-.right-column[
-<img src="images/conceptualMatrix.png" height="400" width="400">
-]
+<img src="/main/images/particleFilter.gif" height="400" width="400">
 ---
 name: last-page
 template: inverse
