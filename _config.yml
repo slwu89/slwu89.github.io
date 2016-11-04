@@ -36,6 +36,8 @@ navigation:
     url: /main/pages/examples.html
   - text: Dynamic Programming
     url: http://slwu89.shinyapps.io/dynProgPatch
+  - text: What is Mathematical Epidemiology?
+    url: /main/pages/docSem.html
 
 projects:
   - name: git-secret
