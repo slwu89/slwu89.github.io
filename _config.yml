@@ -35,7 +35,7 @@ navigation:
   - text: Examples Test
     url: /main/pages/examples.html
   - text: Dynamic Programming
-    url: http://slwu89.shinyapps.io/dynProgPatch
+    url: http://slwu89.shinyapps.io/dynProgPatch/
   - text: What is Mathematical Epidemiology?
     url: /main/pages/mathEpiSlides.html
 
