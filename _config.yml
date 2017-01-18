@@ -36,6 +36,8 @@ navigation:
     url: /main/pages/examples.html
   - text: Dynamic Programming
     url: http://slwu89.shinyapps.io/dynProgPatch/
+  - text: Dynamics of Vector-borne Diseases
+    url: https://slwu89.shinyapps.io/StaticsDynamics/
   - text: What is Mathematical Epidemiology?
     url: /main/pages/mathEpiSlides.html
 
