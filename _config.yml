@@ -48,12 +48,9 @@ projects:
     description: A R Shiny app to demonstrate graphically and interactively the most important mathematical concepts from the 2004 papers <i>"Statics and dynamics of malaria infection in Anopheles mosquitoes"</i> and <i>"The risk of a mosquito-borne infection in a heterogeneous environment"</i>. This is part of the larger MASH project.
     link: https://slwu89.shinyapps.io/StaticsDynamics/
     # image: https://pbs.twimg.com/profile_images/751426570607271937/vGxpniun_400x400.jpg
-  - name: ecto_autoslug_field
+  - name: Bayesian Inference
     description: Automatically creates slugs for your Ecto models.
-    link: https://github.com/sobolevn/ecto_autoslug_field
-  - name: django-split-settings
-    description: Organize Django settings into multiple files and directories. Easily override and modify settings. Use wildcards and optional settings files.
-    link: https://github.com/sobolevn/django-split-settings
+    link: https://slwu89.shinyapps.io/BayesianInference/
 
 social:
   - service: github
