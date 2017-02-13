@@ -37,7 +37,7 @@ navigation:
 
 projects:
   - name: DHM-Basic
-    description: A R Shiny app to calculate basic mosquit vector bionomics from an individual based model (Distributed Hazards Model) that can be mapped onto the classic vector parameters of the deterministic Ross-MacDonald framework for models of mosquito-borne infection. This is part of the larger <a href="http://smitdave.github.io/MASH-Development/index.html">MASH</a> project.
+    description: A R Shiny app to calculate basic vector bionomics from an individual based model (Distributed Hazards Model) that can be mapped onto the classic vector parameters of the deterministic Ross-MacDonald framework for models of mosquito-borne infection. This is part of the larger <a href="http://smitdave.github.io/MASH-Development/index.html">MASH</a> project.
     link: https://slwu89.shinyapps.io/DHM-Basic/
     # image: https://github.com/sobolevn/git-secret/blob/7c9ae0b1853d4c15549027524121b9e40219fe47/images/git-secret-sm.png?raw=true
   - name: Models of Mosquito-borne Infection
