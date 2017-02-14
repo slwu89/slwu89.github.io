@@ -45,7 +45,7 @@ projects:
     link: https://slwu89.shinyapps.io/StaticsDynamics/
     image: https://slwu89.github.io/main/images/MASH_logo.png
   - name: Bayesian Inference
-    description: A R Shiny app to help teach Bayesian methods such as Markov Chain Monte Carlo (MCMC), Dirichlet processes, and Bayesian updating.
+    description: A R Shiny app to help teach Bayesian methods such as Markov Chain Monte Carlo (MCMC), Dirichlet processes, and other topics.
     link: https://slwu89.shinyapps.io/BayesianInference/
     image: https://slwu89.github.io/main/images/bayes.png
 
