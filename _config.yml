@@ -49,6 +49,12 @@ projects:
     link: https://slwu89.shinyapps.io/BayesianInference/
     image: https://slwu89.github.io/main/images/bayes.png
 
+presentations:
+  - name: What is Mathematical Epidemiology?
+    description: A talk I gave on Mathematical Epidemiology in Fall 2016 to my first year PhD seminar at UC Berkeley.
+    link: /main/pages/mathEpiSlides.html
+    # image: https://slwu89.github.io/main/images/MASH_logo.png
+
 social:
   - service: github
     username: slwu89

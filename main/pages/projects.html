@@ -45,3 +45,40 @@ layout: default
 
   </div>
 </section>
+
+
+<section>
+
+  <h2>Presentations &amp; Text</h2>
+
+  <div class="grid t-hackcss-cards">
+
+    {% for text in site.presentations %}
+
+    <div class="cell -6of12 t-hackcss-cards-cell">
+      <div class="card">
+        <header class="card-header">{{ text.name }}</header>
+        <div class="card-content">
+          <div class="inner">
+
+            {% if text.image %}
+            <img src="{{ text.image }}" class="t-hackcss-cards-image"
+                 alt="{{ text.name }}"
+                 title="{{ text.name }}" />
+            {% endif %}
+
+            <p class="t-hackcss-cards-text">{{ text.description }}</p>
+            <p class="t-hackcss-cards-link">
+              <a href="{{ text.link }}" title="{{ text.name }}" target="_blank">
+                 {{ text.name }}
+               </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% endfor %}
+
+  </div>
+</section>
