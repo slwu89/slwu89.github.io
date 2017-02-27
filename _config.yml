@@ -44,10 +44,6 @@ projects:
     description: A R Shiny app to demonstrate graphically and interactively the most important mathematical concepts from the 2004 papers <i>"Statics and dynamics of malaria infection in Anopheles mosquitoes"</i> and <i>"The risk of a mosquito-borne infection in a heterogeneous environment"</i>. This is part of the larger <a href="http://smitdave.github.io/MASH-Development/index.html">MASH</a> project.
     link: https://slwu89.shinyapps.io/StaticsDynamics/
     image: https://slwu89.github.io/main/images/MASH_logo.png
-  - name: Bayesian Inference
-    description: A R Shiny app to help teach Bayesian methods such as Markov Chain Monte Carlo (MCMC), Dirichlet processes, and other topics.
-    link: https://slwu89.shinyapps.io/BayesianInference/
-    image: https://slwu89.github.io/main/images/bayes.png
   - name: Vector Control Optimization Model (VCOM)
     description: A differential equation based model to investigate effect sizes of modern vector control techniques on <i>Plasmodium falciparum</i> transmission in sub-Saharan Africa. This model is developed as a collaboration between UCSF, UC Berkeley, and Ifakara Health Institute.
     link: http://chipdelmal.github.io/VCOM/
@@ -56,6 +52,10 @@ projects:
     description: A R Shiny app developed for population genetic models of various remedial gene drive strategies. This project is part of the <a href="http://www.darpa.mil/news-events/2016-09-07">DARPA Safe Genes project</a> and is done in collaboration with my advisor, <a href="http://jmarshall.berkeley.edu">John Marshall, PhD</a>.
     link: https://slwu89.shinyapps.io/reversalDrives/
     image: https://slwu89.github.io/main/images/dna.png
+  - name: Bayesian Inference
+    description: A R Shiny app to help teach Bayesian methods such as Markov Chain Monte Carlo (MCMC), Dirichlet processes, and other topics.
+    link: https://slwu89.shinyapps.io/BayesianInference/
+    image: https://slwu89.github.io/main/images/bayes.png
 
 presentations:
   - name: What is Mathematical Epidemiology?
