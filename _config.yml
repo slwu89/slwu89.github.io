@@ -49,7 +49,7 @@ projects:
     link: https://slwu89.shinyapps.io/BayesianInference/
     image: https://slwu89.github.io/main/images/bayes.png
   - name: Safe Genes
-    description: A R Shiny app developed for population genetic models of various remedial gene drive strategies. This project is part of the DARPA Safe Genes research grant and is done in collaboration with my advisor, <a href="http://jmarshall.berkeley.edu">John Marshall, PhD</a>.
+    description: A R Shiny app developed for population genetic models of various remedial gene drive strategies. This project is part of the <a href="http://www.darpa.mil/news-events/2016-09-07">DARPA Safe Genes project</a> and is done in collaboration with my advisor, <a href="http://jmarshall.berkeley.edu">John Marshall, PhD</a>.
     link: https://slwu89.shinyapps.io/reversalDrives/
     image: https://slwu89.github.io/main/images/dna.png
 
