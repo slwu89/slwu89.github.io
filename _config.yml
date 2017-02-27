@@ -51,7 +51,7 @@ projects:
   - name: Safe Genes
     description: A R Shiny app developed for population genetic models of various remedial gene drive strategies. This project is part of the DARPA Safe Genes research grant and is done in collaboration with my advisor, <a href="http://jmarshall.berkeley.edu">John Marshall, PhD</a>.
     link: https://slwu89.shinyapps.io/reversalDrives/
-    imag: https://slwu89.github.io/main/images/dna.png
+    image: https://slwu89.github.io/main/images/dna.png
 
 presentations:
   - name: What is Mathematical Epidemiology?
