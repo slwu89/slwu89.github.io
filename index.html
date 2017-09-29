@@ -35,6 +35,52 @@ code {
   <section>
     <h1>Sean Wu: PhD Student in Epidemiology, MPH in Epidemiology &amp; Biostatistics at UC Berkeley</h1>
 
+    <!--javascript bits-->
+    <script type="text/javascript">
+
+    var bbTerrarium = new terra.Terrarium(100, 20, {
+      trails: 0.9,
+      periodic: true,
+      background: [22, 22, 22]
+    });
+
+    terra.registerCreature({
+      type: 'plant',
+      color: [0, 120, 0],
+      size: 10,
+      initialEnergy: 5,
+      maxEnergy: 20,
+      wait: function() {
+        // photosynthesis :)
+        this.energy += 1;
+      },
+      move: false,
+      reproduceLv: 0.65
+    });
+
+    terra.registerCreature({
+      type: 'brute',
+      color: [0, 255, 255],
+      maxEnergy: 50,
+      initialEnergy: 10,
+      size: 20
+    });
+
+    terra.registerCreature({
+      type: 'bully',
+      color: [241, 196, 15],
+      initialEnergy: 20,
+      reproduceLv: 0.6,
+      sustainability: 3
+    });
+
+    bbTerrarium.grid = bbTerrarium.makeGridWithDistribution([['plant', 50], ['brute', 5], ['bully', 5]]);
+    bbTerrarium.animate();
+
+
+    </script>
+
+
     <p>
       rogue epidemiology phd student. networks, agent-based models, gene drive, dynamical chaos, bifurcation, life finds a way.
     </p>
@@ -46,15 +92,15 @@ code {
     <p>
       <ul>
       <li>I am a second year PhD student in epidemiology with a designated emphasis in computational &amp; genomic biology at UC Berkeley; my advisor is <a href="http://jmarshall.berkeley.edu">John Marshall, PhD</a>.
-      To date we have worked together on mathematical models for <i>Plasmodium falciparum</i> (malaria) transmission at the Malaria Elimination Initiative (UCSF),
-      probabilistic models of human movement in East Africa, and research into genetic control strategies as part of the <a href="http://www.darpa.mil/news-events/2016-09-07">DARPA Safe Genes project</a>.</li>
-      <li>I also collaborate frequently with <a href="https://chipdelmal.github.io">Héctor Sánchez, PhD</a>, on <a href="http://smitdave.github.io/MASH-Development/index.html">MASH</a> (Modular Analysis &amp; Simulation for Human Health), an agent-based model
-      to investigate transmission of mosquito-borne pathogens, a project lead by <a href="https://globalhealth.washington.edu/faculty/david-smith">David Smith, PhD</a>. We have also collaborated on <a href="https://chipdelmal.shinyapps.io/ImpossibleGermany/">VCOM (Vector Control Optimziation Model)</a>, a differential equation based model for inference of vector control interventions on <i>P. falciparum</i> transmission.</li>
-      <li>I have also previously done research in Sichuan, China
-      investigating genetic biomarkers of susceptibility to infection by <i>Schistosomiasis japonicum</i>, a water borne liver fluke, led by
+      We work together on mathematical models for infectious disease epidemiology and on CRISPR-Cas9 based genetic control strategies as part of the <a href="http://www.darpa.mil/news-events/2016-09-07">DARPA Safe Genes project</a> and for agriculture as with the <a href="https://innovativegenomics.org">Innovative Genomics Institute</a>.</li>
+      <li>I also collaborate with <a href="https://chipdelmal.github.io">Héctor Sánchez, PhD</a>, on <a href="http://smitdave.github.io/MASH-Development/index.html">MASH</a> (Modular Analysis &amp; Simulation for Human Health), an agent-based model
+      of mosquito-borne pathogen transmission, led by <a href="https://globalhealth.washington.edu/faculty/david-smith">David Smith, PhD</a>. We also worked on <a href="https://chipdelmal.shinyapps.io/ImpossibleGermany/">VCOM (Vector Control Optimziation Model)</a>, a mathematical model for <i>Plasmodium falciparum</i> transmission.</li>
+      <li>I have also worked in Sichuan, China
+      on genetic biomarkers of susceptibility to infection by <i>Schistosomiasis japonicum</i> with
       <a href="http://coeh.berkeley.edu/people/faculty/spear.htm">Robert Spear, PhD</a>.</li>
       <li>My research interests include simulation of stochastic processes, emergent pathogen behavior in epidemiological systems, Bayesian inference for stochastic models,
       viral phylogenetics, and gene drive.</li>
+      <li>I like computers, movies so bad they become good (movies have toroidal boundary conditions?), programming, food, fresh air, and archery.</li>
     </p>
     </ul>
     </p>
