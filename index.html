@@ -42,7 +42,8 @@ code {
     var bbTerrarium = new terra.Terrarium(100, 25, {
       trails: 0.9,
       periodic: true,
-      background: [22, 22, 22]
+      background: [22, 22, 22],
+      insertAfter: document.getElementById('head')
     });
 
     terra.registerCreature({
@@ -75,7 +76,7 @@ code {
       sustainability: 3
     });
 
-    bbTerrarium.grid = bbTerrarium.makeGridWithDistribution([['plant', 50], ['brute', 10], ['bully', 10]]);
+    bbTerrarium.grid = bbTerrarium.makeGridWithDistribution([['plant', 50], ['brute', 5], ['bully', 10]]);
     bbTerrarium.animate();
     </script>
     </p>
