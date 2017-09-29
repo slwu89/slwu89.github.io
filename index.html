@@ -8,53 +8,7 @@ layout: default
     <h1>Sean Wu: PhD Student in Epidemiology, MPH in Epidemiology &amp; Biostatistics at UC Berkeley</h1>
 
     <p id="splash"></p>
-
-    <!--javascript bits-->
-    <script src="https://cdn.jsdelivr.net/terra/latest/mainfile"></script>
-    <script type="text/javascript">
-
-    var bbTerrarium = new terra.Terrarium(160, 50, {
-      trails: 0.9,
-      periodic: true,
-      background: [22, 22, 22],
-      insertAfter: document.getElementById("splash"),
-      cellSize: 5
-    });
-
-    terra.registerCreature({
-      type: 'plant',
-      color: [0, 120, 0],
-      size: 10,
-      initialEnergy: 5,
-      maxEnergy: 20,
-      wait: function() {
-        // photosynthesis :)
-        this.energy += 1;
-      },
-      move: false,
-      reproduceLv: 0.65
-    });
-
-    terra.registerCreature({
-      type: 'brute',
-      color: [0, 255, 255],
-      maxEnergy: 50,
-      initialEnergy: 10,
-      size: 20
-    });
-
-    terra.registerCreature({
-      type: 'bully',
-      color: [241, 196, 15],
-      initialEnergy: 20,
-      reproduceLv: 0.6,
-      sustainability: 3
-    });
-
-    bbTerrarium.grid = bbTerrarium.makeGridWithDistribution([['plant', 50], ['brute', 5], ['bully', 10]]);
-    bbTerrarium.animate();
-    </script>
-
+    
     <p>
       rogue epidemiology phd student. networks, agent-based models, gene drive, dynamical chaos, bifurcation, life finds a way.
     </p>
