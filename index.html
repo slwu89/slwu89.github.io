@@ -39,11 +39,12 @@ code {
     <!--javascript bits-->
     <script type="text/javascript">
 
-    var bbTerrarium = new terra.Terrarium(80, 25, {
+    var bbTerrarium = new terra.Terrarium(160, 50, {
       trails: 0.9,
       periodic: true,
       background: [22, 22, 22],
-      insertAfter: document.getElementById("splash")
+      insertAfter: document.getElementById("splash"),
+      cellSize = 5
     });
 
     terra.registerCreature({
