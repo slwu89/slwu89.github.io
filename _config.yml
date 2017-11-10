@@ -70,6 +70,9 @@ social:
   - service: twitter
     username: slwu89
     link: https://twitter.com/slwu89
+  - service: researchgate
+    username: Sean_Wu16
+    link: https://www.researchgate.net/profile/Sean_Wu16
 
 # Plugins
 gems:
