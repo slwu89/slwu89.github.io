@@ -1,94 +1,222 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html>
 
-<div>
+<style>
+body {font-family: sans-serif;}
+p {font-family: sans-serif; font-size: 0.85em;}
+table {font-family: sans-serif;}
+tr {font-family: sans-serif;}
+td {font-family: sans-serif;}
+h1 {font-family: sans-serif;}
+h2 {font-family: sans-serif;}
+h3 {font-family: sans-serif;}
+ul {font-family: sans-serif; font-size: 0.85em;}
+ol {font-family: sans-serif; font-size: 0.85em;}
+li {font-family: sans-serif;}
+dl {font-family: sans-serif;}
+dt {font-family: sans-serif;}
+dd {font-family: sans-serif; font-size: 0.85em;}
+</style>
 
-  <section>
-    <h1>Sean Wu: PhD Student in Epidemiology, MPH in Epidemiology &amp; Biostatistics at UC Berkeley</h1>
+<body>
 
-    <p id="splash"></p>
+<!-- ********************************************************************************
+*  MAIN HEADER
+******************************************************************************** -->
+<h1>Sean L. Wu</h1>
 
-    <!--javascript bits-->
-    <script src="https://cdn.jsdelivr.net/terra/latest/mainfile"></script>
-    <script type="text/javascript">
+<!-- Col 1 picture -->
+<p>
+<table>
+<td ALIGN="left" VALIGN="top">
+  <img src= "src/smallprof.png" align="right" width="200" height="200">
+</td>
 
-    var bbTerrarium = new terra.Terrarium(160, 50, {
-      trails: 0.9,
-      periodic: true,
-      background: [22, 22, 22],
-      insertAfter: document.getElementById("splash"),
-      cellSize: 5
-    });
+<td width=25>
+  &nbsp;
+</td>
 
-    terra.registerCreature({
-      type: 'plant',
-      color: [0, 120, 0],
-      size: 10,
-      initialEnergy: 5,
-      maxEnergy: 20,
-      wait: function() {
-        // photosynthesis :)
-        this.energy += 1;
-      },
-      move: false,
-      reproduceLv: 0.65
-    });
+<!-- Col 2 affiliation -->
+<td ALIGN="left" VALIGN="top">
+  <p>
+    PhD Candidate in Epidemiology & Computational Biology (Designated Emphasis) <br>
+    University of California, Berkeley <br>
+    slwu89 (at) berkeley (dot) edu <br>
+    <br>
+    <a href="https://scholar.google.com/citations?user=LovpXkAAAAAJ&hl=en&oi=ao">Google Scholar</a> <br>
+    <a href="https://github.com/slwu89">GitHub</a> <br>
+    <a href="https://www.researchgate.net/profile/Sean_Wu16">ResearchGate</a> (seldom updated) <br>
+  </p>
+</td>
 
-    terra.registerCreature({
-      type: 'brute',
-      color: [0, 255, 255],
-      maxEnergy: 50,
-      initialEnergy: 10,
-      size: 20
-    });
+<td width=25>
+  &nbsp;
+</td>
 
-    terra.registerCreature({
-      type: 'bully',
-      color: [255, 51, 153],
-      initialEnergy: 50,
-      reproduceLv: 0.6,
-      sustainability: 3
-    });
+<!-- Col 3 toc -->
+<td ALIGN="left" VALIGN="top">
 
-    bbTerrarium.grid = bbTerrarium.makeGridWithDistribution([['plant', 50], ['brute', 5], ['bully', 10]]);
-    bbTerrarium.animate();
-    </script>
+    Table of Contents <br>
 
-  </section>
+    <ol>
+      <li><a href="#res-int">Research Interests</a></li>
+      <li><a href="#intro">Introduction</a></li>
+      <li><a href="#pubs">Publications</a></li>
+      <li><a href="#rogues">Rogues' Gallery</a></li>
+    </ol>
 
-  <section>
+</td>
 
-  <style>
-  codeCustom {
-    padding: 0;
-    padding-top: 0.2em;
-    padding-bottom: 0.2em;
-    margin: 0;
-    font-size: 110%;
-    font-family: 'Ubuntu Mono';
-    color: #e60000;
-    background-color: rgba(0,0,0,0.95);
-    border-radius: 4px;
-  }
-  </style>
-    
-    <h2>Hello, World!</h2>
-    
-    Sean obtained his B.A. from UC Irvine where he studied International Relations & Statistics, and his MPH from UC Berkeley in Epidemiology & Biostatistics. 
-    He is currently pursuing his PhD in Epidemiology with a designated emphasis in Computational Biology under  <a href="https://www.marshalllab.com">Dr. John M. Marshall</a>. 
-    He is interested in the investigation of stochastic processes through analytic and numerical methods to help infectious disease epidemiologists better understand and describe disease transmission systems. 
-    Other areas of interest are probabilistic risk communication and graphical models.
-    More distant areas of interest he really has no right to talk about due to sheer ignorance are the interface between logical and statistical inference, complex systems (broadly, how to even <i>define it</i>; he attended the Santa Fe Institute's Complex Systems Summer School and found the kool-aid much to his liking), variance reduction for Monte Carlo simulation, and the history of Central Asia, particularly Afghanistan.
-    He simultaneously likes and hates programming, and purely likes cooking, archery, hiking, and drawing. His Google scholar profile is <a href="https://scholar.google.com/citations?user=LovpXkAAAAAJ">here</a>.
+</table>
+</p>
+
+<hr>
 
 
-    <p>
-      My (computer) languages are: <codeCustom>R</codeCustom> (native), <codeCustom>C++</codeCustom> (fluent), <codeCustom>C</codeCustom> (conversational), <codeCustom>Julia</codeCustom> (beginner), and <codeCustom>Python</codeCustom> (beginner).
-      <br>
-      My (human) languages are: <codeCustom>English</codeCustom> (native), <codeCustom>Mandarin Chinese</codeCustom> (fluent).
-     </p>
-  </section>
+<!-- ********************************************************************************
+*  RESEARCH INTERESTS
+******************************************************************************** -->
+
+<h2><a name="res-int">Research Interests</a></h2>
+
+<h4>Major Interests:</h4>
+
+<ul>
+  <li>Mechanistic stochastic modelling, especially non-Markovian or delayed systems</li>
+  <li>Uncertainty quantification for computationally expensive models</li>
+  <li>Graphical methods to specify models (Petri Nets, compartmental model diagrams, DAGs)</li>
+</ul>
+
+<h4>Minor Interests:</h4>
+
+<ul>
+  <li>
+    Probabilistic risk assessment for rare events <br>
+    <dd>I am <i>very interested</i> in thinking about what we can learn from <a href="https://statistics.berkeley.edu/tech-reports/611">earthquake forecasting</a> here.</dd>
+  </li>
+
+  <li>
+    Epistemic uncertainty in stochastic models <br>
+    <dd>I haven't thought about it very deeply, but I like Keith Beven's <a href="https://doi.org/10.1080/02626667.2015.1031761">work</a> on this, from hydrology.</dd>
+  </li>
+
+  <li>Variance reduction for Monte Carlo simulation</li>
+</ul>
+
+<hr>
 
 
-</div>
+<!-- ********************************************************************************
+*  INTRODUCTION
+******************************************************************************** -->
+
+<h2><a name="intro">Introduction</a></h2>
+
+<p>
+  My middle name is Lawrence. I'm an epidemiologist raised by <del>wolves</del> physicists. I attended the University of California (UC), Irvine from 2008 to 2013 where I studied International Studies & Statistics.
+  I recieved my MPH in Epidemiology & Biostatistics from the UC Berkeley in 2016. I am currently a 5th year PhD Candidate in Epidemiology with a designated emphasis in Computational Biology
+  at UC Berkeley. My PhD advisor is <a href="https://www.marshalllab.com">John M. Marshall</a>; my applied work at Berkeley involves using stochastic mechanistic models to evaluate potential effects of genetic control strategies
+  upon mosquito-borne disease burden. I draw on a wide range of tools to design models, including dynamical systems and stochastic processes to formulate models, Petri Nets to structure simulation software, and
+  statistical methods to estimate parameters from laboratory data.
+  <br>
+  <br>
+  I am involved in a long term collaboration with <a href="https://sites.google.com/site/professordavidlsmith/">David L. Smith</a> at the Malaria Control and Elimination team housed at the Institute for Health Metrics and Evaluation.
+  My work is on structuring large scale models of malaria transmission, at the national scale, or larger. To do so, we have to build reliable, tested software. When we can, we use analytic results (stationary distributions or transition probabilities) to
+  rigorously test our scientific code. We use graphical models, including Petri Nets and directed acyclic graphs to go from a whiteboard description of malaria ecology to a computer program. I also advise on
+  statistical models as needed.
+  <br>
+  <br>
+  I have been involved in various other research projects, including my current position as a research intern at <a href="https://www.microsoft.com/en-us/research/project/project-premonition/">Microsoft Research</a>
+  where I work on detailed stochastic models of mosquito ecology under <a href="https://scholar.google.co.uk/citations?user=DhFI1wUAAAAJ&hl=en">Simon D.W. Frost</a>. Previously I have been at
+  the <a href="http://www.shrinkingthemalariamap.org">Malaria Elimination Initiative</a> at UC San Francisco, and spent a summer in Sichuan Province, China studying possible genetic biomarkers of
+  susceptibility to schistosomiasis infection at the <a href="https://schistoatberkeley.weebly.com">Berkeley Schistosomiasis Group</a>, under <a href="https://publichealth.berkeley.edu/people/robert-spear/">Robert C. Spear</a>.
+  During the first year of my PhD I attended the Complex Systems Summer School (2017) at the <a href="https://www.santafe.edu">Santa Fe Institute</a> and found it life changing.
+  <br>
+  <br>
+  My father is Cantonese Chinese from Hong Kong and my mother is Scandinavian & Oglala Sioux from San Diego, California. I use he/him/his. I identify as mixed-race (or hapa, but see <a href="https://en.wikipedia.org/wiki/Hapa#Controversy">this</a>).
+  I grew up in San Diego but consider Southern California broadly to be my home. Before coming to Berkeley I worked as a computer hardware repairperson for a cardiology group, office assistant at UC Irvine,
+  waiter at a Taiwanese beef noodle soup restaurant, and medical assistant at a pediatric office. My favorite TV show is Battlestar Galactica. I like to read books; some recent favorites are the
+  Area X trilogy by <a href="https://www.newyorker.com/culture/cultural-comment/weird-thoreau-jeff-vandermeer-southern-reach">Jeff VanderMeer</a> and the Three Body Problem by <a href="https://www.newyorker.com/books/page-turner/chinas-arthur-c-clarke">Liu Cixin</a>.
+  <br>
+  <br>
+  In addition to English I speak fluent Mandarin Chinese. Languages I can speak to computers are <b>R</b> (native), <b>C++</b> (fluent), <b>C</b> (conversational), and <b>Julia</b> (conversational).
+</p>
+
+<hr>
+
+
+<!-- ********************************************************************************
+*  PUBLICATIONS
+******************************************************************************** -->
+
+<h2><a name="pubs">Publications</a></h2>
+
+<h3>Journal Articles</h3>
+
+<ol>
+  <li>S&aacute;nchez CH, <b>Wu SL</b>, Bennett JB, Marshall JM. <a href="https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.13318">MGDrivE: A modular simulation framework for the spread of gene drives through spatially explicit mosquito populations.</a> Methods in Ecology and Evolution. 2020 Feb;11(2):229-39.
+  <li><b>Wu SL</b>, Henry JM, Citron DT, Zhang Q, Compton K, Liang B, Verma A, Cummings DA, Le Menach A, Scott TW, Wilson AL. <a href="https://journals.plos.org/ploscompbiol/article?rev=2&id=10.1371/journal.pcbi.1007446">Vector bionomics and vectorial capacity as emergent properties of mosquito behaviors and ecology.</a> PLoS computational biology. 2020 Apr 22;16(4):e1007446.
+  <li>Spear RC, Cheng Q, <b>Wu SL</b>. <a href="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2019WR026379">An example of augmenting regional sensitivity analysis using machine learning software.</a> Water Resources Research. 2020 Apr;56(4):e2019WR026379.
+  <li>Kandul NP, Liu J, <b>Wu SL</b>, Marshall JM, Akbari OS. <a href="https://www.nature.com/articles/s41467-018-07964-7">Transforming insect population control with precision guided sterile males with demonstration in flies. Nature communications.</a> 2019 Jan 8;10(1):1-2.
+  <li>Marshall JM, <b>Wu SL</b>, S&aacute;nchez CH, Kiware SS, Ndhlovu M, Ou&eacute;draogo AL, Tour&eacute; MB, Sturrock HJ, Ghani AC, Ferguson NM. <a href="https://www.nature.com/articles/s41598-018-26023-1">Mathematical models of human mobility of relevance to malaria transmission in Africa.</a> Scientific reports. 2018 May 16;8(1):1-2.
+  <li>Kiware SS, Chitnis N, Tatarsky A, <b>Wu S</b>, S&aacute;nchez CH, Gosling R, Smith D, Marshall JM. <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0187680">Attacking the mosquito on multiple fronts: Insights from the Vector Control Optimization Model (VCOM) for malaria elimination.</a> PloS one. 2017 Dec 1;12(12):e0187680.
+</ol>
+
+<h3>Preprints</h3>
+
+<ol>
+  <li>(Under review at International Journal of Health Geographics) Fries B, Smith DL, <b>Wu S</b>, Dolgert AJ, Guerra CA, Hay SI, García GA, Smith JM, Oyono JN, Donfack OT, Nfumu JO. <a href="https://www.biorxiv.org/content/10.1101/2020.06.18.160101v1">Measuring the accuracy of gridded human population density surfaces: a case study in Bioko Island, Equatorial Guinea.</a> BioRxiv. 2020 Jan 1.
+  <li>(Under review at PNAS) Citron DT, Smith DL, <b>Wu SL</b>, S&aacute;nchez CH, Dolgert AJ, Henry JM, Guerra CA. <a href="https://www.medrxiv.org/content/10.1101/2020.04.05.20054304v2">Comparing Metapopulation Dynamics of Infectious Diseases under Different Models of Human Movement.</a> medRxiv. 2020 Jan 1.
+  <li>(Under review at Nature Communications) <b>Wu SL</b>, Mertens A, Crider YS, Nguyen A, Pokpongkiat NN, Djajadi S, Seth A, Hsiang MS, Colford JM, Reingold A, Arnold BF. <a href="https://www.medrxiv.org/content/10.1101/2020.05.12.20091744v1">Substantial underestimation of SARS-CoV-2 infection in the United States due to incomplete testing and imperfect test accuracy.</a> medRxiv. 2020 Jan 1.
+  <li>Jing Q, <b>Wu S</b>, He Z, Yuan L, Ma M, Bai Z, Jiang L, Marshall J, Lu J, Yang Z. <a href="https://www.biorxiv.org/content/10.1101/697052v1.abstract">New genotype invasion of dengue virus serotype 1 drove massive outbreak in Guangzhou, China.</a> BioRxiv. 2019 Jan 1:697052.
+  <li>S&aacute;nchez CH, Marshall JM, <b>Wu SL</b>, Vallejo EE. <a href="https://www.biorxiv.org/content/10.1101/210450v1">Effects of Spatial Heterogeneity on Transmission Potential in Vectorial-Contact Networks: A Comparison of Three Aedes aegypti Control Strategies.</a> bioRxiv. 2017 Jan 1:210450.
+</ol>
+
+<h3>Software</h3>
+
+<ol>
+  <li> S&aacute;nchez Castellanos H, Bennett J, <b>Wu S</b>, Marshall J (2019).
+  &ldquo;MGDrivE: A modular simulation framework for the spread of gene drives through spatially explicit mosquito populations.&rdquo;
+  <em>Methods in Ecology and Evolution</em>.
+  doi: <a href="https://doi.org/10.1111/2041-210X.13318">10.1111/2041-210X.13318</a>, https://besjournals.onlinelibrary.wiley.com/doi/epdf/10.1111/2041-210X.13318, <a href="https://doi.org/10.1111/2041-210X.13318">https://doi.org/10.1111/2041-210X.13318</a>.
+  <br> R package available on <a href="https://cran.r-project.org/web/packages/MGDrivE/index.html">CRAN</a>
+</ol>
+
+<h3>Miscellaneous</h3>
+
+<ol>
+  <li> Zhou Y, Park D, <b>Wu S.</b> <a href="https://www.semanticscholar.org/paper/Organic-Urban-Boundaries-and-Clusters-–-Analyzing-Zhou-Park/8957372da698aeb9201a957d145894533a1ffba6">Organic Urban Boundaries and Clusters - Analyzing Singapore as an Example.</a> 2017
+</ol>
+
+<hr>
+
+<!-- ********************************************************************************
+*  ROGUES GALLERY
+******************************************************************************** -->
+
+<h2><a name="rogues">Rogues' Gallery</a></h2>
+
+<h4>Friends, Mentors, Acquaintances</h4>
+
+<ul>
+  <li>My friend & colleage <a href="https://biohpc.cornell.edu/staff/drew/">Drew Dolgert</a> with whom I design software to simulate malaria at IHME. Physicist #1.
+  <li>A colleague turned friend: <a href="http://www.dtcitron.com/index.html">Daniel T. Citron</a>. Physicist #2.
+  <li>A friend I met at the Santa Fe Institute who works on very interesting things, <a href="http://csc.ucdavis.edu/~ajurgens/">Alex Jurgens</a>. Physicist #3.
+  <li>Friend since age 5, now a scientist at Lawrence Berkeley National Laboratory, <a href="https://blondegeek.github.io">Tess Smidt</a>. Physicist #4.
+  <li>My friend and one-time classmate, now in digital health, <a href="https://marialma.github.io">Maria Ma</a>. Not a physicist (Infectious Disease).
+  <li>Long time friend and colleague, <a href="https://chipdelmal.github.io/blog/">H&eacute;ctor S&aacute;nchez Manuel Castellanos</a>. Not a physicist (Computer Science).
+</ul>
+
+<h4>People with Interesting Web Pages</h4>
+
+<ul>
+  <li>Chaos, statistics, stochastics, economics, other: <a href="http://bactra.org">Cosma Shalizi</a>.
+  <li>Statistician: <a href="http://www.cs.utoronto.ca/~radford/">Radford Neal</a>.
+  <li>Random numbers, probability: <a href="http://luc.devroye.org">Luc Devroye</a>.
+  <li>Cybernetics: <a href="https://www.pangaro.com/definition-cybernetics.html">Paul Pangaro</a>.
+  <li>Mathematics, Category theory: <a href="https://www.math3ma.com">Tai-Danae Bradley</a>.
+  <li>Art, Bay Area housing and transportation policy advocate: <a href="https://www.ocf.berkeley.edu/~atwu/firstcultural/fci_main.html">Alfred Twu</a>.
+</ul>
+
+</body>
+</html>
