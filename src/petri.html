@@ -203,7 +203,8 @@ summary {
 </div>
 <div id="Molloy-1985" class="section level2">
 <h2>Discrete Time Petri Nets (Molloy 1985 <a href="https://doi.org/10.1109/TSE.1985.232230">DOI:10.1109/TSE.1985.232230</a>)</h2>
-<p>Molloy’s equation 4 is <span class="math display">\[ \rho_{i} = \frac{P[E_{i}]}{P[E_{i}\cup E_{0}]} \]</span> The probability <span class="math inline">\(\rho_{i}\)</span> are assigned by the designer <em>a priori</em>, the RHS of the expression is the definition, “the probability that the enabled transition <span class="math inline">\(t_{i}\)</span> fires at the next time step, given (conditioned on) the fact that no other transition fires.” The conditioning gives the denominator. So it’s made up of more fundamental building blocks that the conflict resolution rule in the Petri Net simulator has to deal with.</p>
+<p>For a discrete time stochastic Petri net (DTSPN), on each time step, if no events are in conflict, then the probability of any combination of firings and non-firings (a binary vector) will simply be a product of <span class="math inline">\(\rho_{i}\)</span> and <span class="math inline">\(1-\rho_{i}\)</span>. The probability <span class="math inline">\(\rho_{i}\)</span> are assigned by the designer <em>a priori</em>, the RHS of the expression is the definition, “the probability that the enabled transition <span class="math inline">\(t_{i}\)</span> fires at the next time step, given (conditioned on) the fact that no other transition fires.” This means the firing times are Geometrically distributed, if <span class="math inline">\(\rho_{i}&lt;1\)</span>.</p>
+<p>Molloy’s equation 4 is <span class="math display">\[ \rho_{i} = \frac{P[E_{i}]}{P[E_{i}\cup E_{0}]} \]</span>. The conditioning gives the denominator. So it’s made up of more fundamental building blocks that the conflict resolution rule in the Petri Net simulator has to deal with.</p>
 <p>In a set of mutually exclusive transitions <span class="math inline">\(\{t_{i}\}\)</span>, that equation holds for all, so using the constraint all <span class="math inline">\(0&lt;\rho_{i}&lt;1\)</span>, one can solve for <span class="math inline">\(P[E_{0}]\)</span> (he does not show this). Let’s consider the simple case with 2 mutually exclusive transitions. We get 3 equations, and 3 unknowns (the elementary unconditional probabilities). The denominators are sums here, he writes unions but because the events are mutually exclusive the intersection, coming from the <a href="https://en.wikipedia.org/wiki/Inclusion%E2%80%93exclusion_principle#In_probability">inclusion-exclusion principle</a> is the zero set.</p>
 <p><span class="math display">\[
 P[E_{0}] + P[E_{1}] + P[E_{2}] = 1 \\
@@ -219,11 +220,21 @@ P[E_{i}] = \frac{\frac{\rho_{i}}{1-\rho_{i}}}{ 1 + \sum \frac{\rho_{j}}{1-\rho_{
 }
 
 rho &lt;- c(0.5,0.25)</code></pre>
+<p>If JuliaCall worked we could use</p>
+<pre class="julia"><code>function molloy(rho,i)
+  (rho[i] / (1 - rho[i])) / (1 + sum(rho ./ (1 .- rho)))
+end
+
+rho = [0.5,0.25]</code></pre>
 <p>We can check our solution works against his:</p>
 <pre class="r"><code>fractions((rho[1] - prod(rho)) / (1 - prod(rho)))</code></pre>
 <pre><code>## [1] 3/7</code></pre>
 <pre class="r"><code>fractions(molloy(rho,1))</code></pre>
 <pre><code>## [1] 3/7</code></pre>
+<p>If <span class="math inline">\(\rho_{i}=1\)</span> is allowed for some subset <span class="math inline">\(T_{D}\subset T_{E}\)</span> in the set of enabled, mutually exclusive (conflicting) transitions, the previous equations do not make sense. Molloy gives the only reasonable conflict resolution as saying that for <span class="math inline">\(t_{i}\in T_{E}\)</span> where <span class="math inline">\(\rho_{i}&lt;1\)</span>, their probability of firing <span class="math inline">\(P[E_{i}]\)</span> is zero. For <span class="math inline">\(t_{i}\in T_{D}\)</span>:</p>
+<p><span class="math display">\[
+P[E_{i}] = \frac{1}{|T_{D}|}
+\]</span></p>
 </div>
 
 
