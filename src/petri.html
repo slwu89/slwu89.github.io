@@ -199,7 +199,7 @@ summary {
 <h2>Table of Contents</h2>
 <ol style="list-style-type: decimal">
 <li><a href="#Molloy-1985">Molloy 1985</a>: Discrete Time Stochastic Petri Nets</li>
-<li><a href="#Glynn-1985">Glynn 1989</a>: A GSMP Formalism for Discrete Event Systems</li>
+<li><a href="#Glynn-1989">Glynn 1989</a>: A GSMP Formalism for Discrete Event Systems</li>
 </ol>
 </div>
 <div id="Molloy-1985" class="section level2">
@@ -245,7 +245,7 @@ P[E_{i}] = \frac{1}{|T_{D}|}
 <p>By making “chains” of <span class="math inline">\(\rho_{i}=1\)</span> transitions and places, one can implement deterministic firing time distributions into DTSPN.</p>
 </div>
 <div id="Glynn-1989" class="section level2">
-<h2>A GSMP Formalism for Discrete Event Systems (Glynn 1985) <a href="https://doi.org/10.1109/5.21067">DOI:10.1109/5.21067</a></h2>
+<h2>A GSMP Formalism for Discrete Event Systems (Glynn 1989) <a href="https://doi.org/10.1109/5.21067">DOI:10.1109/5.21067</a></h2>
 <p>2 definitions:</p>
 <ul>
 <li>CVDS: continuous variable dynamical system</li>
@@ -258,7 +258,13 @@ P[E_{i}] = \frac{1}{|T_{D}|}
 <p><span class="math display">\[
 S(t) = \sum_{n=0}^{\infty} S_{n} I(\Lambda_{n} \leq t &lt; \Lambda(n+1))
 \]</span></p>
-<p>Then, <span class="math inline">\(\Delta_{n+1} = \Lambda(n+1) - \Lambda(n)\)</span> is the time that the system dwells in the state attained by the n-th transition, and <span class="math inline">\(S_{n}\)</span> is the associated output value. The output process needs the existence of a stochastic process <span class="math inline">\(X = (X_{n}:n\geq 0)\)</span> describing the evolution of the internal state of the system. The “observables” are related by: <span class="math inline">\((S_{n},\Delta_{n}) = (h_{1}(X_{n}),h_{2}(X_{n}))\)</span></p>
+<p>Then, <span class="math inline">\(\Delta_{n+1} = \Lambda(n+1) - \Lambda(n)\)</span> is the time that the system dwells in the state attained by the n-th transition, and <span class="math inline">\(S_{n}\)</span> is the associated output value. The output process needs the existence of a stochastic process <span class="math inline">\(X = (X_{n}:n\geq 0)\)</span> describing the evolution of the internal state of the system. The “observables” are related by: <span class="math inline">\((S_{n},\Delta_{n}) = (h_{1}(X_{n}),h_{2}(X_{n}))\)</span>.</p>
+<p>The next thing is how to describe the evolution of the internal state for each system. For CVDS we can use a mapping, <span class="math inline">\(x=f(x)\)</span>, which takes you from one spot in state space to another. Interestingly enough he notes that this representation is “noncausal”, creating difficulties both mathematically and computationally. For that reasons, we usually use a (possibly time-dependent) differential relationship <span class="math inline">\(x^{\prime}(t) = f(t,x(s):0\leq s \leq t)\)</span>. Then the model is “causally defined in terms of the infinitesimal characteristics of the system”, which is a local specification. For classic differential equations, the considered dynamics are <span class="math inline">\(x^{\prime}(t) = f(t,x(t))\)</span>.</p>
+<p>For DEDS the “noncausal” representation is <span class="math inline">\(X = f(X,\eta)\)</span>, where <span class="math inline">\(\eta\)</span> is a sequence of i.i.d. random variables. The causal representation is <span class="math inline">\(X_{n+1} = f_{n+1}(\eta_{n+1},X_{k}:0\leq k \leq n)\)</span>. For Markov processes, it becomes <span class="math inline">\(X_{n+1} = f_{n+1}(X_{n},\eta_{n+1})\)</span>.</p>
+</div>
+<div id="gsmp-generalized-semi-markov-processes" class="section level3">
+<h3>GSMP (Generalized Semi-Markov Processes)</h3>
+<p>To discuss GSMP, Glynn uses the <span class="math inline">\(X_{n+1} = f_{n+1}(\eta_{n+1},X_{k}:0\leq k \leq n)\)</span> DEDS representation. $S is the countable set of states, $E is the countable set of events, <span class="math inline">\(s\in S\)</span> is a physical state a system may exist in, and <span class="math inline">\(E(s)\)</span> is the finite set of events that can trigger transitions out of <span class="math inline">\(s\)</span>. For each <span class="math inline">\(e\in E(s)\)</span>, a clock <span class="math inline">\(c_{e}\)</span> is associated which gives the amount of time elapsed since <span class="math inline">\(c_{e}\)</span> was last activated. Each clock’s time elapses at a rate/speed <span class="math inline">\(r_{se}\)</span>. The rates can be a function of state. Let <span class="math inline">\(C(s)\)</span> be the set of clock readings possible in <span class="math inline">\(s\in S\)</span>.</p>
 </div>
 </div>
 
