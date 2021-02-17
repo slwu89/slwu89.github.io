@@ -282,10 +282,18 @@ S(t) = \sum_{n=0}^{\infty} S_{n} I(\Lambda_{n} \leq t &lt; \Lambda(n+1))
 <li>For each enabled event <span class="math inline">\(e\in E(S_{n})\)</span>, sample a random variate <span class="math inline">\(Y_{e,n} \sim F(\cdot;\overrightarrow{X}_{n},e)\)</span>.</li>
 <li>Set <span class="math inline">\(\Delta_{n+1} = \min\{Y_{e,n}/r_{S_{n},e}:e\in E(S_{n})\}\)</span> and <span class="math inline">\(e^{*}_{n+1}\)</span> is the unique event which achieves the minimum for <span class="math inline">\(\Delta_{n+1}\)</span>.</li>
 <li>Sample the new physical state <span class="math inline">\(S_{n+1}\)</span> from <span class="math inline">\(p(\cdot; \overrightarrow{X},e^{*}_{n+1})\)</span>.</li>
-<li>Set: * <span class="math inline">\(C_{n+1,e}=-1\)</span>, for <span class="math inline">\(e\not\in E(S_{n+1})\)</span> (newly disabled clocks are set to some null value) * <span class="math inline">\(C_{n+1,e}=0\)</span>, for <span class="math inline">\(e\in N(S_{n+1};S_{n},e^{*}_{n+1})\)</span> (newly enabled clocks are set to zero) * <span class="math inline">\(C_{n+1,e} = C_{n+e} + \Delta_{n+1} r_{S_{n},e}\)</span>, for <span class="math inline">\(e\in 0(S_{n+1};S_{n},e^{*}_{n+1})\)</span> (old clocks that still run are updated with how much they ticked in the last state dwell)</li>
+<li>Set:
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(C_{n+1,e}=-1\)</span>, for <span class="math inline">\(e\not\in E(S_{n+1})\)</span> (newly disabled clocks are set to some null value)</li>
+<li><span class="math inline">\(C_{n+1,e}=0\)</span>, for <span class="math inline">\(e\in N(S_{n+1};S_{n},e^{*}_{n+1})\)</span> (newly enabled clocks are set to zero)</li>
+<li><span class="math inline">\(C_{n+1,e} = C_{n+e} + \Delta_{n+1} r_{S_{n},e}\)</span>, for <span class="math inline">\(e\in 0(S_{n+1};S_{n},e^{*}_{n+1})\)</span> (old clocks that still run are updated with how much they ticked in the last state dwell)</li>
+</ol></li>
 </ol>
 <p>Such an algorithm can sample from time-inhomogeneous generalized semi-Markov processes. It’s inhomogeneous because the residual life distributions <span class="math inline">\(F\)</span> and transition <span class="math inline">\(p\)</span> can depend on the entire history of <span class="math inline">\(X\)</span>. Also, it probably draws far more random numbers than it needs to. Anderson would later (18 years later, to be specific) cut down the number to just 1 per event (after initialization), and also demystified the “residual life” distributions via <a href="http://bactra.org/notebooks/random-time-changes.html">random time changes</a>. Thank god.</p>
 </div>
+</div>
+<div id="section" class="section level3">
+<h3></h3>
 </div>
 </div>
 
