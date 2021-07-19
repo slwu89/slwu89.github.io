@@ -364,8 +364,9 @@ div.tocify {
 </div>
 
 
-<div id="ch.-1" class="section level1">
-<h1>Ch. 1</h1>
+<p>These notes largely follow the book, and I don’t have time to do all the exercises. In some cases I’ve compared Simon Wood’s “by hand” solutions in the text to other packages or methods.</p>
+<div id="ch.-1-linear-models" class="section level1">
+<h1>Ch. 1: Linear Models</h1>
 <p>Chapter 1 is about linear models and their theory.</p>
 <div id="exercises" class="section level2">
 <h2>Exercises</h2>
@@ -522,13 +523,13 @@ y_{1} \\ y_{2} \\ y_{3} \\ y_{4} \\ y_{5} \\ y_{6}
 <span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="fu">least_sq</span>(<span class="at">y =</span> y,<span class="at">X =</span> X)</span></code></pre></div>
 <pre><code>## $beta
-## [1] 5.244344 2.897491
+## [1] 4.891108 2.976509
 ## 
 ## $se
-## [1] 0.16261718 0.07005677
+## [1] 0.10014283 0.01896609
 ## 
 ## $sig2
-## [1] 1.241648
+## [1] 0.8165852
 ## 
 ## $seq.p.val
 ## [1] 0 0
@@ -569,22 +570,19 @@ y_{1} \\ y_{2} \\ y_{3} \\ y_{4} \\ y_{5} \\ y_{6}
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(b[<span class="dv">2</span><span class="sc">:</span><span class="dv">7</span>])</span></code></pre></div>
 <pre><code>## [1] 3.552714e-15</code></pre>
 <p>Now we still have an intercept, but all the other terms sum to 0. We can check this against <code>mgcv::pcls</code>, it’s the same. Note that we can’t leave <code>Ain</code> blank in <code>pcls</code>, even if we don’t have any inequality constraints, so we put in the trivial one that any parameter vector will fulfill (since <code>Ain</code> is all zeros).</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mgcv)</span></code></pre></div>
-<pre><code>## Loading required package: nlme</code></pre>
-<pre><code>## This is mgcv 1.8-32. For overview type &#39;help(&quot;mgcv-package&quot;)&#39;.</code></pre>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> InsectSprays<span class="sc">$</span>count,</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">w =</span> <span class="fu">rep</span>(<span class="dv">1</span>, <span class="fu">nrow</span>(InsectSprays)),</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">X =</span> X,</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">C =</span> C,</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">S =</span> <span class="fu">list</span>(),</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">off =</span> <span class="fu">array</span>(<span class="dv">0</span>,<span class="dv">0</span>),</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">sp =</span> <span class="fu">array</span>(<span class="dv">0</span>,<span class="dv">0</span>),</span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">p =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>),</span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">Ain =</span> <span class="fu">matrix</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">7</span>),</span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">bin =</span> <span class="sc">-</span><span class="dv">1</span></span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>pcls.fit <span class="ot">&lt;-</span> mgcv<span class="sc">::</span><span class="fu">pcls</span>(<span class="at">M =</span> M)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> InsectSprays<span class="sc">$</span>count,</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">w =</span> <span class="fu">rep</span>(<span class="dv">1</span>, <span class="fu">nrow</span>(InsectSprays)),</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">X =</span> X,</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">C =</span> C,</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">S =</span> <span class="fu">list</span>(),</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">off =</span> <span class="fu">array</span>(<span class="dv">0</span>,<span class="dv">0</span>),</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">sp =</span> <span class="fu">array</span>(<span class="dv">0</span>,<span class="dv">0</span>),</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">p =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>),</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">Ain =</span> <span class="fu">matrix</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">7</span>),</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">bin =</span> <span class="sc">-</span><span class="dv">1</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>pcls.fit <span class="ot">&lt;-</span> mgcv<span class="sc">::</span><span class="fu">pcls</span>(<span class="at">M =</span> M)</span></code></pre></div>
 <table>
 <caption>pcls v. hand constraints</caption>
 <tbody>
@@ -632,15 +630,15 @@ y_{1} \\ y_{2} \\ y_{3} \\ y_{4} \\ y_{5} \\ y_{6}
 \partial\mathbb{E}(V_{i})/\partial{\beta_{3}} = \beta_{1} G_{i}^{\beta_{2}} H_{i}^{\beta_{3}} \log H_{i}
 \]</span></p>
 <p>The R function, is therefore (taking advantage of vectorized operators):</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>EV.func <span class="ot">&lt;-</span> <span class="cf">function</span>(beta, G, H) { </span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  mu <span class="ot">&lt;-</span> beta[<span class="dv">1</span>] <span class="sc">*</span> (G<span class="sc">^</span>beta[<span class="dv">2</span>]) <span class="sc">*</span> (H<span class="sc">^</span>beta[<span class="dv">3</span>])</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  J <span class="ot">&lt;-</span> <span class="fu">cbind</span>(</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    (G<span class="sc">^</span>beta[<span class="dv">2</span>]) <span class="sc">*</span> (H<span class="sc">^</span>beta[<span class="dv">3</span>]),</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    mu<span class="sc">*</span><span class="fu">log</span>(G),</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    mu<span class="sc">*</span><span class="fu">log</span>(H)</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(<span class="at">mu=</span>mu,<span class="at">J=</span>J)</span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>EV.func <span class="ot">&lt;-</span> <span class="cf">function</span>(beta, G, H) { </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  mu <span class="ot">&lt;-</span> beta[<span class="dv">1</span>] <span class="sc">*</span> (G<span class="sc">^</span>beta[<span class="dv">2</span>]) <span class="sc">*</span> (H<span class="sc">^</span>beta[<span class="dv">3</span>])</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  J <span class="ot">&lt;-</span> <span class="fu">cbind</span>(</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    (G<span class="sc">^</span>beta[<span class="dv">2</span>]) <span class="sc">*</span> (H<span class="sc">^</span>beta[<span class="dv">3</span>]),</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    mu<span class="sc">*</span><span class="fu">log</span>(G),</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    mu<span class="sc">*</span><span class="fu">log</span>(H)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(<span class="at">mu=</span>mu,<span class="at">J=</span>J)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <ol start="2" style="list-style-type: lower-alpha">
 <li>Fit the model to the <code>trees</code> data. Use <span class="math inline">\(\beta = [.002, 2, 1]\)</span> for starting values. We use non-linear least squares (NLS).</li>
 </ol>
@@ -650,33 +648,33 @@ y_{1} \\ y_{2} \\ y_{3} \\ y_{4} \\ y_{5} \\ y_{6}
 <li>Use iterative linear least squares to solve; we have some starting parameters <span class="math inline">\(\hat{\beta}^{[k]}\)</span> and Taylor expand <span class="math inline">\(f\)</span> so that <span class="math inline">\(\mathcal{S}\)</span> becomes: <span class="math inline">\(\mathcal{S} \approx \mathcal{S}^{[k]} = \left\lVert y - f(\hat{\beta}^{[k]}) + J^{[k]}\hat{\beta}^{[k]} - J^{[k]}\beta \right\rVert^{2}\)</span>.</li>
 <li>Define <strong>pseudodata</strong> <span class="math inline">\(z^{[k]} = y - f(\hat{\beta}^{[k]}) + J^{[k]}\hat{\beta}^{[k]}\)</span> so the objective is <span class="math inline">\(\mathcal{S}^{[k]} = \left\lVert z^{[k]} - J^{[k]}\beta \right\rVert^{2}\)</span>. Minimize <span class="math inline">\(\mathcal{S}^{[k]}\)</span> with respect to <span class="math inline">\(\beta\)</span> to get an improved parameter estimate <span class="math inline">\(\hat{\beta}^{[k+1]}\)</span>. Do that until convergence.</li>
 </ul>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(trees)</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>V <span class="ot">&lt;-</span> trees<span class="sc">$</span>Volume</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>G <span class="ot">&lt;-</span> trees<span class="sc">$</span>Girth</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>H <span class="ot">&lt;-</span> trees<span class="sc">$</span>Height</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>beta <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.002</span>, <span class="dv">2</span>, <span class="dv">1</span>)</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>diff <span class="ot">&lt;-</span> <span class="cn">Inf</span></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (diff <span class="sc">&gt;</span> <span class="fl">1e-8</span>) {</span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  EV <span class="ot">&lt;-</span> <span class="fu">EV.func</span>(<span class="at">beta =</span> beta, <span class="at">G =</span> G, <span class="at">H =</span> H)</span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>  z <span class="ot">&lt;-</span> V <span class="sc">-</span> EV<span class="sc">$</span>mu <span class="sc">+</span> (EV<span class="sc">$</span>J <span class="sc">%*%</span> beta)  <span class="co"># calc pseudodata</span></span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>  beta_old <span class="ot">&lt;-</span> beta</span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># linear least squares to minimize S^{[k]} with respect to beta to get improved estimate \beta^{[k+1]}</span></span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>  beta <span class="ot">&lt;-</span> <span class="fu">coef</span>(<span class="fu">lm</span>(z <span class="sc">~</span> EV<span class="sc">$</span>J <span class="sc">-</span> <span class="dv">1</span>))</span>
-<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>  diff <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">abs</span>(beta <span class="sc">-</span> beta_old))</span>
-<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(trees)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>V <span class="ot">&lt;-</span> trees<span class="sc">$</span>Volume</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>G <span class="ot">&lt;-</span> trees<span class="sc">$</span>Girth</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>H <span class="ot">&lt;-</span> trees<span class="sc">$</span>Height</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>beta <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.002</span>, <span class="dv">2</span>, <span class="dv">1</span>)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>diff <span class="ot">&lt;-</span> <span class="cn">Inf</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (diff <span class="sc">&gt;</span> <span class="fl">1e-8</span>) {</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  EV <span class="ot">&lt;-</span> <span class="fu">EV.func</span>(<span class="at">beta =</span> beta, <span class="at">G =</span> G, <span class="at">H =</span> H)</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  z <span class="ot">&lt;-</span> V <span class="sc">-</span> EV<span class="sc">$</span>mu <span class="sc">+</span> (EV<span class="sc">$</span>J <span class="sc">%*%</span> beta)  <span class="co"># calc pseudodata</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>  beta_old <span class="ot">&lt;-</span> beta</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># linear least squares to minimize S^{[k]} with respect to beta to get improved estimate \beta^{[k+1]}</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>  beta <span class="ot">&lt;-</span> <span class="fu">coef</span>(<span class="fu">lm</span>(z <span class="sc">~</span> EV<span class="sc">$</span>J <span class="sc">-</span> <span class="dv">1</span>))</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>  diff <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">abs</span>(beta <span class="sc">-</span> beta_old))</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <ol start="3" style="list-style-type: lower-alpha">
 <li>Get standard error estimates. The call <code>solve(t(EV$J)%*%EV$J)</code> finds <span class="math inline">\((\mathbf{J}^{\intercal}\mathbf{J})^{-1}\)</span>.</li>
 </ol>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>sig2 <span class="ot">&lt;-</span> <span class="fu">sum</span>((V <span class="sc">-</span> EV<span class="sc">$</span>mu)<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(<span class="fu">nrow</span>(trees)<span class="sc">-</span><span class="dv">3</span>)</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>Vb <span class="ot">&lt;-</span> <span class="fu">solve</span>(<span class="fu">t</span>(EV<span class="sc">$</span>J)<span class="sc">%*%</span>EV<span class="sc">$</span>J)<span class="sc">*</span>sig2</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>se <span class="ot">&lt;-</span> <span class="fu">diag</span>(Vb)<span class="sc">^</span>.<span class="dv">5</span>;se</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>sig2 <span class="ot">&lt;-</span> <span class="fu">sum</span>((V <span class="sc">-</span> EV<span class="sc">$</span>mu)<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(<span class="fu">nrow</span>(trees)<span class="sc">-</span><span class="dv">3</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>Vb <span class="ot">&lt;-</span> <span class="fu">solve</span>(<span class="fu">t</span>(EV<span class="sc">$</span>J)<span class="sc">%*%</span>EV<span class="sc">$</span>J)<span class="sc">*</span>sig2</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>se <span class="ot">&lt;-</span> <span class="fu">diag</span>(Vb)<span class="sc">^</span>.<span class="dv">5</span>;se</span></code></pre></div>
 <pre><code>## [1] 0.001366994 0.082077439 0.242158812</code></pre>
 <p>Let’s compare the above to what we get from <code>stats::nls</code>. It’s the same.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>nls.fit <span class="ot">&lt;-</span> stats<span class="sc">::</span><span class="fu">nls</span>(</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  Volume <span class="sc">~</span> beta1 <span class="sc">*</span> (Girth<span class="sc">^</span>beta2) <span class="sc">*</span> (Height<span class="sc">^</span>beta3),</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> trees,</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">start =</span> <span class="fu">as.list</span>(<span class="fu">c</span>(<span class="at">beta1=</span><span class="fl">0.002</span>, <span class="at">beta2=</span><span class="dv">2</span>, <span class="at">beta3=</span><span class="dv">1</span>))</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>nls.fit <span class="ot">&lt;-</span> stats<span class="sc">::</span><span class="fu">nls</span>(</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  Volume <span class="sc">~</span> beta1 <span class="sc">*</span> (Girth<span class="sc">^</span>beta2) <span class="sc">*</span> (Height<span class="sc">^</span>beta3),</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> trees,</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">start =</span> <span class="fu">as.list</span>(<span class="fu">c</span>(<span class="at">beta1=</span><span class="fl">0.002</span>, <span class="at">beta2=</span><span class="dv">2</span>, <span class="at">beta3=</span><span class="dv">1</span>))</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <table>
 <caption>parameter estimates</caption>
 <thead>
@@ -727,6 +725,290 @@ y_{1} \\ y_{2} \\ y_{3} \\ y_{4} \\ y_{5} \\ y_{6}
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+</div>
+<div id="ch.-2-linear-mixed-models" class="section level1">
+<h1>Ch. 2: Linear Mixed Models</h1>
+<p>Linear mixed models (LMM) extend the linear model (LM).</p>
+<p>Linear models are of the form:</p>
+<p><span class="math display">\[
+\mathbf{y} = \mathbf{X}\mathbf{\beta} + \mathbf{\epsilon}, \mathbf{\epsilon}\sim N(\mathbf{0},\mathbf{I}\sigma^{2})
+\]</span></p>
+<p>LMM are extended to be:</p>
+<p><span class="math display">\[
+\mathbf{y} = \mathbf{X}\mathbf{\beta} + \mathbf{Z}\mathbf{b} + \mathbf{\epsilon}, \mathbf{\epsilon}\sim N(\mathbf{0},\mathbf{\Lambda_{\theta}}), \mathbf{b}\sim N(\mathbf{0},\mathbf{\psi_{\theta}})
+\]</span></p>
+<p>The <strong>random</strong> vector <span class="math inline">\(\mathbf{b}\)</span> has the random effects, whose covariance matrix depends on some parameters <span class="math inline">\(\theta\)</span>; these are usually the target of inference, rather than <span class="math inline">\(\mathbf{b}\)</span> per se. <span class="math inline">\(\mathbf{Z}\)</span> is the model matrix for the random effects. <span class="math inline">\(\mathbf{\Lambda_{\theta}}\)</span> models residual autocorrelation, but often it is as simple as <span class="math inline">\(\mathbf{\Lambda_{\theta}} = \mathbf{I}\sigma^{2}\)</span>. So the random effects also get a linear model structure, just like the fixed effects.</p>
+<p>The model for the outcome itself will follow a multivariate normal distribution:</p>
+<p><span class="math display">\[
+\mathbf{y}\sim N(\mathbf{X\beta},\mathbf{Z}\mathbf{\psi}_{\theta}\mathbf{Z}^{\intercal} + \mathbf{\Lambda}_{\theta})
+\]</span></p>
+<div id="mixed-models-for-balanced-data" class="section level2">
+<h2>2.1: Mixed models for balanced data</h2>
+<p>For the tree example, a fixed effects model is clearly unidentifiable. The random effects model will be set up as:</p>
+<p><span class="math display">\[
+y_{i} = \alpha_{j} + b_{k} +\epsilon_{i}
+\]</span> For measurement <span class="math inline">\(i\)</span> in CO2 level <span class="math inline">\(j\)</span> and tree <span class="math inline">\(k\)</span>, and <span class="math inline">\(b_{k}\sim N(0,\sigma_{b}^{2}), \epsilon_{i}\sim N(0,\sigma^{2})\)</span>.</p>
+<p>If we don’t need/want to do inference on the specific values of <span class="math inline">\(b_{k}\)</span> and simply want to test for CO2 effects in the presence of random tree effects. Not that for tree <span class="math inline">\(k\)</span>, the average response is:</p>
+<p><span class="math display">\[
+\overline{y}_{k} = \alpha_{j} + e_{k}
+\]</span> Where <span class="math inline">\(e_{k}\sim N(0,\sigma^{2}_{b} + \sigma^{2}/4)\)</span>. This is because there are 4 observations for each tree. We averaged over the data at each level of the random effect <span class="math inline">\(b_{k}\)</span>, that is, for each tree.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(stomata)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>st <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.matrix</span>(stomata),</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">by=</span><span class="fu">list</span>(<span class="at">tree=</span>stomata<span class="sc">$</span>tree),mean</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>st<span class="sc">$</span>CO2 <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(st<span class="sc">$</span>CO2);st</span></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["tree"],"name":[1],"type":["fct"],"align":["left"]},{"label":["area"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["CO2"],"name":[3],"type":["fct"],"align":["left"]},{"label":["tree"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"1.623374","3":"1","4":"1"},{"1":"2","2":"1.598643","3":"1","4":"2"},{"1":"3","2":"1.162961","3":"1","4":"3"},{"1":"4","2":"2.789238","3":"2","4":"4"},{"1":"5","2":"2.903544","3":"2","4":"5"},{"1":"6","2":"2.329761","3":"2","4":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>m3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(area <span class="sc">~</span> CO2, st)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(m3)</span></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Df"],"name":[1],"type":["int"],"align":["right"]},{"label":["Sum Sq"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Mean Sq"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["F value"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Pr(>F)"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"2.205314","3":"2.20531395","4":"27.68695","5":"0.006246682","_rn_":"CO2"},{"1":"4","2":"0.318607","3":"0.07965176","4":"NA","5":"NA","_rn_":"Residuals"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>There’s evidence for C02 effect in this model. Again, <span class="math inline">\(\theta\)</span> is a target of inference, and in this case it’s <span class="math inline">\(\sigma_{b}^{2}\)</span>, so let’s estimate it.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(area <span class="sc">~</span> CO2 <span class="sc">+</span> tree, stomata)</span></code></pre></div>
+<p>The full unidentifiable model has <span class="math inline">\(\hat{\sigma}^{2} = \mathrm{RSS}_{1}/18\)</span>. There are 18 degrees of freedom <span class="math inline">\(n-p = 18, n=24, p=6\)</span>.</p>
+<p>The LMM has <span class="math inline">\(\widehat{\sigma_{b}^{2} + \sigma^{2}/4} = \mathrm{RSS}_{3}/4\)</span>.</p>
+<p>To get <span class="math inline">\(\hat{\sigma}^{2}_{b}\)</span> we just need to subtract:</p>
+<p><span class="math display">\[
+\hat{\sigma}^{2}_{b} = \widehat{\sigma_{b}^{2} + \sigma^{2}/4} - \hat{\sigma}^{2}/4 = \mathrm{RSS}_{3}/4 - \mathrm{RSS}_{1}/72
+\]</span></p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m3)<span class="sc">$</span>sigma<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> <span class="fu">summary</span>(m1)<span class="sc">$</span>sigma<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span><span class="dv">4</span></span></code></pre></div>
+<pre><code>## [1] 0.06770177</code></pre>
+<p>The next example is about some data on rails. We do the inference by hand:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(travel <span class="sc">~</span> Rail,Rail)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>rt <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(<span class="fu">data.matrix</span>(Rail),<span class="at">by=</span><span class="fu">list</span>(Rail<span class="sc">$</span>Rail),mean)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>m0 <span class="ot">&lt;-</span> <span class="fu">lm</span>(travel <span class="sc">~</span> <span class="dv">1</span>,rt)</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>sig <span class="ot">&lt;-</span> <span class="fu">summary</span>(m1)<span class="sc">$</span>sigma</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>sigb <span class="ot">&lt;-</span> (<span class="fu">summary</span>(m0)<span class="sc">$</span>sigma<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> sig<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>)<span class="sc">^</span><span class="fl">0.5</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">rbind</span>(<span class="at">sigb =</span> sigb, <span class="at">sig =</span> sig, <span class="at">intercept =</span> <span class="fu">unname</span>(<span class="fu">coef</span>(m0)))</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(tab,<span class="at">caption =</span> <span class="st">&quot;By-hand LMM for rails data&quot;</span>)</span></code></pre></div>
+<pre><code>## Warning in kable_pipe(x = structure(c(&quot;sigb&quot;, &quot;sig&quot;, &quot;intercept&quot;, &quot;24.805465&quot;, :
+## The table should have a header (column names)</code></pre>
+<table>
+<caption>By-hand LMM for rails data</caption>
+<tbody>
+<tr class="odd">
+<td align="left">sigb</td>
+<td align="right">24.805465</td>
+</tr>
+<tr class="even">
+<td align="left">sig</td>
+<td align="right">4.020779</td>
+</tr>
+<tr class="odd">
+<td align="left">intercept</td>
+<td align="right">66.500000</td>
+</tr>
+</tbody>
+</table>
+<p>And now we compare to <code>nlme::lme</code>. It will give us the same thing.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>rail_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">data.matrix</span>(Rail))</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co"># lme.fit = lme(travel ~ 1,random = ~ 1 | Rail,data = rail_df)</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>lme.fit <span class="ot">=</span> <span class="fu">lme</span>(travel <span class="sc">~</span> <span class="dv">1</span>,<span class="at">random =</span> <span class="fu">list</span>(<span class="at">Rail =</span> <span class="sc">~</span><span class="dv">1</span>),<span class="at">data =</span> rail_df)</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lme.fit)</span></code></pre></div>
+<pre><code>## Linear mixed-effects model fit by REML
+##   Data: rail_df 
+##       AIC      BIC   logLik
+##   128.177 130.6766 -61.0885
+## 
+## Random effects:
+##  Formula: ~1 | Rail
+##         (Intercept) Residual
+## StdDev:    24.80547 4.020779
+## 
+## Fixed effects:  travel ~ 1 
+##             Value Std.Error DF  t-value p-value
+## (Intercept)  66.5  10.17104 12 6.538173       0
+## 
+## Standardized Within-Group Residuals:
+##         Min          Q1         Med          Q3         Max 
+## -1.61882658 -0.28217671  0.03569328  0.21955784  1.61437744 
+## 
+## Number of Observations: 18
+## Number of Groups: 6</code></pre>
+</div>
+<div id="mle-for-lmms" class="section level2">
+<h2>2.4: MLE for LMMs</h2>
+<p>We want to do inference on <span class="math inline">\(\mathbf{\beta,\theta}\)</span>, but we don’t want to work directly with the pdf <span class="math inline">\(\mathbf{y}\sim N(\mathbf{X\beta},\mathbf{Z}\mathbf{\psi}_{\theta}\mathbf{Z}^{\intercal} + \mathbf{\Lambda}_{\theta})\)</span> as it is too unwieldy.</p>
+<p>Instead what we work with is the marginal <span class="math inline">\(f(\mathbf{y}|\mathbf{\beta})\)</span>, which has <span class="math inline">\(\mathbf{b}\)</span> integrated out (the part depending on <span class="math inline">\(\theta\)</span>).</p>
+<p>We will also need <span class="math inline">\(f(\mathbf{y,b} | \mathbf{\beta})\)</span>, which is just the pdf of <span class="math inline">\(\mathbf{y}\)</span> conditional on particular values of <span class="math inline">\(\mathbf{b,\beta}\)</span>. We know that <span class="math inline">\(f(\mathbf{y,b} | \mathbf{\beta}) = f(\mathbf{y} | \mathbf{b,\beta}) f(\mathbf{b})\)</span>.</p>
+<p>Say we have <span class="math inline">\(\hat{\mathbf{b}}\)</span> which maximizes <span class="math inline">\(f(\mathbf{y,b} | \mathbf{\beta})\)</span> for a particular <span class="math inline">\(\mathbf{\beta}\)</span>. Then <span class="math inline">\(f(\mathbf{y}|\mathbf{\beta}) = f(\mathbf{y,\hat{b}} | \mathbf{\beta}) \times (\text{terms depending only on }\theta)\)</span>. The point is that we can do inference on <span class="math inline">\(f(\mathbf{y}|\mathbf{\beta})\)</span> by profile likelihood methods. For any <span class="math inline">\(\theta\)</span> it is easy to get an estimator for <span class="math inline">\(\beta\)</span> by minimizing with respect to <span class="math inline">\(\mathbf{\beta,b}\)</span>.</p>
+<p>We call the profile likelihood <span class="math inline">\(l_{p}(\mathbf{\theta}) = l(\mathbf{\theta,\hat{\beta}_{\theta}})\)</span>, where <span class="math inline">\(\hat{\beta}_{\theta}\)</span> maximizes <span class="math inline">\(f(\mathbf{y}|\mathbf{\beta})\)</span> given <span class="math inline">\(\mathbf{\theta}\)</span>.</p>
+<div id="the-distribution-of-mathbfbyhatbeta_theta-given-mathbftheta" class="section level3">
+<h3>2.4.1: The distribution of <span class="math inline">\(\mathbf{b|y,\hat{\beta}_{\theta}}\)</span> given <span class="math inline">\(\mathbf{\theta}\)</span></h3>
+<p>We have:</p>
+<p><span class="math display">\[
+\mathbf{b|y,\hat{\beta}_{\theta}} \sim N(\mathbf{\hat{b} , (Z^{\intercal}\Lambda_{\theta}Z | \psi_{\theta}^{-1})^{-1} })
+\]</span> Where <span class="math inline">\(\hat{\mathbf{b}} = \mathbf{(Z^{\intercal}\Lambda_{\theta}Z | \psi_{\theta}^{-1})^{-1}Z^{\intercal}\Lambda_{\theta}\tilde{y}}\)</span>. <span class="math inline">\(\mathbf{\tilde{y} = y - x\hat{\beta}}\)</span> are the residuals. The <span class="math inline">\(\hat{\mathbf{b}}\)</span> estimate is called the maximum a posteriori estimator or the predicted random effects vector.</p>
+</div>
+<div id="the-distribution-of-hatbeta_theta-given-mathbftheta" class="section level3">
+<h3>2.4.2: The distribution of <span class="math inline">\(\hat{\beta}_{\theta}\)</span> given <span class="math inline">\(\mathbf{\theta}\)</span></h3>
+<p>To get the distribution of <span class="math inline">\(\hat{\beta}_{\theta}\)</span> for a given value of <span class="math inline">\(\theta\)</span>, we can work with the pdf: <span class="math inline">\(\mathbf{y}\sim N(\mathbf{X\beta},\mathbf{Z}\mathbf{\psi}_{\theta}\mathbf{Z}^{\intercal} + \mathbf{\Lambda}_{\theta})\)</span>. For a given <span class="math inline">\(\theta\)</span> a weighted least squares estimate gives <span class="math inline">\(\hat{\beta}_{\theta}\)</span>. We eventually get:</p>
+<p><span class="math display">\[
+$\hat{\beta}_{\theta}$ \sim N(\beta, (\mathbf{X}^{\intercal}(\mathbf{Z}\mathbf{\psi}_{\theta}\mathbf{Z}^{\intercal} + \mathbf{\Lambda}_{\theta})^{-1}\mathbf{X})^{-1} )
+\]</span></p>
+<p>Which we use for large sample inference.</p>
+</div>
+<div id="the-distribution-of-hattheta" class="section level3">
+<h3>2.4.3: The distribution of <span class="math inline">\(\hat{\theta}\)</span></h3>
+</div>
+<div id="maximizing-the-profile-likelihood" class="section level3">
+<h3>2.4.4: Maximizing the profile likelihood</h3>
+<p>The function below is the log likelihood for a given value of <span class="math inline">\(\theta\)</span>; given a lattice of <span class="math inline">\(\theta\)</span> values, it can be maximized (actually minimized, it gives negative log likelihood).</p>
+<p>This function essentially minimizes the profile likelihood:</p>
+<p><span class="math display">\[
+l_{p}(\theta) = \left\lVert \mathbf{y - X\beta - Zb} \right\rVert^{2}_{\Lambda_{\theta}} + \mathbf{b^{\intercal}\psi_{\theta}^{-1}b}
+\]</span></p>
+<p>with respect to <span class="math inline">\(\mathbf{\beta,b}\)</span>.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>llm <span class="ot">&lt;-</span> <span class="cf">function</span>(theta,X,Z,y) { </span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="do">## untransform parameters... </span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  sigma.b <span class="ot">&lt;-</span> <span class="fu">exp</span>(theta[<span class="dv">1</span>]) </span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  sigma <span class="ot">&lt;-</span> <span class="fu">exp</span>(theta[<span class="dv">2</span>])</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="do">## extract dimensions...</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">length</span>(y); pr <span class="ot">&lt;-</span> <span class="fu">ncol</span>(Z); pf <span class="ot">&lt;-</span> <span class="fu">ncol</span>(X) <span class="do">## obtain \hat \beta, \hat b...</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>  X1 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(X,Z)</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>  ipsi <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">0</span>,pf),<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">/</span>sigma.b<span class="sc">^</span><span class="dv">2</span>,pr))</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>  b1 <span class="ot">&lt;-</span> <span class="fu">solve</span>(<span class="fu">crossprod</span>(X1)<span class="sc">/</span>sigma<span class="sc">^</span><span class="dv">2</span><span class="sc">+</span><span class="fu">diag</span>(ipsi),<span class="fu">t</span>(X1)<span class="sc">%*%</span>y<span class="sc">/</span>sigma<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>  <span class="do">## compute log|Z’Z/sigma^2 + I/sigma.b^2|...</span></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>  ldet <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">log</span>(<span class="fu">diag</span>(<span class="fu">chol</span>(<span class="fu">crossprod</span>(Z)<span class="sc">/</span>sigma<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="fu">diag</span>(ipsi[<span class="sc">-</span>(<span class="dv">1</span><span class="sc">:</span>pf)])))))</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>  <span class="do">## compute log profile likelihood...</span></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>  l <span class="ot">&lt;-</span> (<span class="sc">-</span><span class="fu">sum</span>((y<span class="sc">-</span>X1<span class="sc">%*%</span>b1)<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>sigma<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> <span class="fu">sum</span>(b1<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span>ipsi) <span class="sc">-</span> n<span class="sc">*</span><span class="fu">log</span>(sigma<span class="sc">^</span><span class="dv">2</span>) <span class="sc">-</span> pr<span class="sc">*</span><span class="fu">log</span>(sigma.b<span class="sc">^</span><span class="dv">2</span>) <span class="sc">-</span> <span class="dv">2</span><span class="sc">*</span>ldet <span class="sc">-</span> n<span class="sc">*</span><span class="fu">log</span>(<span class="dv">2</span><span class="sc">*</span>pi))<span class="sc">/</span><span class="dv">2</span> </span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">attr</span>(l,<span class="st">&quot;b&quot;</span>) <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(b1) <span class="do">##   return \hat beta and \hat b </span></span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="sc">-</span>l)</span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+</div>
+</div>
+<div id="linear-mixed-models-in-r" class="section level2">
+<h2>2.5: Linear mixed models in R</h2>
+<p>If there is only one level (factor) of grouping in the data, the LMM is of the form:</p>
+<p><span class="math display">\[
+\mathbf{y_{i}} = \mathbf{X_{i}\beta + Z_{i}b_{i} + \epsilon_{i}}
+\]</span></p>
+<p>Terms that have the <span class="math inline">\(i\)</span> subscript depend on group (they are for group <span class="math inline">\(i\)</span>) and others are common to all groups. So <span class="math inline">\(\mathbf{\beta,\psi_{\theta},\Lambda_{\theta}}\)</span>, the coefficients for fixed effects, covariance of random effects, and error terms are the same for all groups.</p>
+<div id="package-nlme" class="section level3">
+<h3>2.5.1: package <code>nlme</code></h3>
+<p>The function <code>lme</code> handles LMMs. It needs 2 formulas, one for the fixed effects, and one for <span class="math inline">\(\mathbf{Z_{i}}\)</span> and grouping. For example to fit the rails model <span class="math inline">\(y_{ij} = \alpha + b_{i} + \epsilon_{ij}\)</span> for grouping factor <span class="math inline">\(i\)</span> with repeated measures <span class="math inline">\(j\)</span>, we’d do:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(Rail)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co"># lme(travel ~ 1, Rail, ~ 1|Rail)  # works too</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lme</span>(travel <span class="sc">~</span> <span class="dv">1</span>, Rail, <span class="fu">list</span>(<span class="at">Rail =</span> <span class="sc">~</span> <span class="dv">1</span>))</span></code></pre></div>
+<pre><code>## Linear mixed-effects model fit by REML
+##   Data: Rail 
+##   Log-restricted-likelihood: -61.0885
+##   Fixed: travel ~ 1 
+## (Intercept) 
+##        66.5 
+## 
+## Random effects:
+##  Formula: ~1 | Rail
+##         (Intercept) Residual
+## StdDev:    24.80547 4.020779
+## 
+## Number of Observations: 18
+## Number of Groups: 6</code></pre>
+</div>
+<div id="tree-growth-an-example-using-lme" class="section level3">
+<h3>2.5.2: Tree growth, an example using <code>lme</code></h3>
+<p>We have data for 14 trees on their growth (<code>height</code>) as a function of <code>age</code>, where <code>Seed</code> is the unique ID for each tree. Let <span class="math inline">\(y\)</span> be height, <span class="math inline">\(x\)</span> be age, then our model might be:</p>
+<p><span class="math display">\[
+y_{ij} + \beta_{0} + \beta_{1}x_{ij} + \beta_{2}x_{ij}^{2} + \beta_{3}x_{ij}^{3} + b_{0} + b_{1}x_{ij}^{2} + b_{2}x_{ij}^{3} + \epsilon_{ij}
+\]</span></p>
+<p>and correlation between errors is given by <span class="math inline">\(\rho(\epsilon_{ij}, \epsilon_{ij-k}) = \phi^{k}\)</span>, with <span class="math inline">\(\phi\)</span> unknown. That means errors are autocorrelated within tree over time. So measurements taken 3 years apart would have a decaying correlation of <span class="math inline">\(\phi^{3}\)</span>.</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(Loblolly)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="co"># center the data, polynomial terms can become too correlated otherwise</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>Loblolly<span class="sc">$</span>age <span class="ot">&lt;-</span> Loblolly<span class="sc">$</span>age <span class="sc">-</span> <span class="fu">mean</span>(Loblolly<span class="sc">$</span>age)</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="co"># use more EM iters before Newton for the final optimization</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>lmc <span class="ot">&lt;-</span> <span class="fu">lmeControl</span>(<span class="at">niterEM=</span><span class="dv">500</span>,<span class="at">msMaxIter=</span><span class="dv">100</span>)</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="co"># fit the model</span></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>m0 <span class="ot">&lt;-</span> <span class="fu">lme</span>(height <span class="sc">~</span> age <span class="sc">+</span> <span class="fu">I</span>(age<span class="sc">^</span><span class="dv">2</span>) <span class="sc">+</span> <span class="fu">I</span>(age<span class="sc">^</span><span class="dv">3</span>),Loblolly,</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">random =</span> <span class="fu">list</span>(<span class="at">Seed =</span> <span class="sc">~</span> age <span class="sc">+</span> <span class="fu">I</span>(age<span class="sc">^</span><span class="dv">2</span>) <span class="sc">+</span> <span class="fu">I</span>(age<span class="sc">^</span><span class="dv">3</span>)),</span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">correlation =</span> <span class="fu">corAR1</span>(<span class="at">form =</span> <span class="sc">~</span> age<span class="sc">|</span>Seed),<span class="at">control=</span>lmc)</span></code></pre></div>
+</div>
+<div id="several-levels-of-nesting" class="section level3">
+<h3>2.5.3: Several levels of nesting</h3>
+<p>If there are two factors, and repeated measurements within each strata, we need to be more careful when using <code>lme</code>. Say we index factors by <span class="math inline">\(i,j\)</span> and measurements within factor strata by <span class="math inline">\(k\)</span>:</p>
+<p><span class="math display">\[
+y_{ijk} = \mu + \alpha_{i} + b_{j} + (\alpha b)_{ij} + \epsilon_{ijk}
+\]</span> This model has an overall mean, terms for the independent random effect of both factors, and one for the specific strata. Distributions follow: <span class="math inline">\(b_{j} \sim N(0,\sigma_{b}^{2}), (\alpha b)_{ij} \sim N(0,\sigma_{\alpha b}^{2}), \epsilon_{ijk} \sim N(0,\sigma^{2})\)</span>. For the dataset <code>Machines</code> where the factors are <code>Worker</code> and <code>Machine</code> and outcome is <code>score</code>, we’d use:</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(Machines)</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lme</span>(score <span class="sc">~</span> Machine,Machines,<span class="fu">list</span>(<span class="at">Worker =</span> <span class="sc">~</span><span class="dv">1</span>, <span class="at">Machine =</span> <span class="sc">~</span><span class="dv">1</span>))</span></code></pre></div>
+<pre><code>## Linear mixed-effects model fit by REML
+##   Data: Machines 
+##   Log-restricted-likelihood: -107.8438
+##   Fixed: score ~ Machine 
+## (Intercept)    MachineB    MachineC 
+##   52.355556    7.966667   13.916667 
+## 
+## Random effects:
+##  Formula: ~1 | Worker
+##         (Intercept)
+## StdDev:     4.78105
+## 
+##  Formula: ~1 | Machine %in% Worker
+##         (Intercept)  Residual
+## StdDev:    3.729532 0.9615771
+## 
+## Number of Observations: 54
+## Number of Groups: 
+##              Worker Machine %in% Worker 
+##                   6                  18</code></pre>
+</div>
+<div id="package-lme4" class="section level3">
+<h3>2.5.4: Package <code>lme4</code></h3>
+<p><code>nlme</code> is efficient for models with nesting, but less so for non nested models like <span class="math inline">\(y_{ijk} = \alpha + b_{i} + c_{j} + \epsilon_{ijk}\)</span>. <code>lme4</code> addresses this. Unlike <code>lme</code>, the <code>lmer</code> function in <code>lme4</code> uses a single formula to specify both fixed and random effects. Random effects (<span class="math inline">\(b\)</span>) are specified like <span class="math inline">\((x|g)\)</span> where <span class="math inline">\(g\)</span> is the grouping factor and <span class="math inline">\(x\)</span> is the right hand of the model formula.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>a1 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(score <span class="sc">~</span> Machine <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>Worker) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>Worker<span class="sc">:</span>Machine), <span class="at">data=</span>Machines)</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>a1</span></code></pre></div>
+<pre><code>## Linear mixed model fit by REML [&#39;lmerMod&#39;]
+## Formula: score ~ Machine + (1 | Worker) + (1 | Worker:Machine)
+##    Data: Machines
+## REML criterion at convergence: 215.6876
+## Random effects:
+##  Groups         Name        Std.Dev.
+##  Worker:Machine (Intercept) 3.7295  
+##  Worker         (Intercept) 4.7811  
+##  Residual                   0.9616  
+## Number of obs: 54, groups:  Worker:Machine, 18; Worker, 6
+## Fixed Effects:
+## (Intercept)     MachineB     MachineC  
+##      52.356        7.967       13.917</code></pre>
+</div>
+<div id="package-mgcv" class="section level3">
+<h3>2.5.5: Package <code>mgcv</code></h3>
+<p><code>gam</code> in <code>mgcv</code> can also fit LMMs, with independent Gaussian random effects, but need to be specified using smooth terms of the form <code>s(z,x,v,bs=&quot;re&quot;)</code>.</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>b1 <span class="ot">&lt;-</span> <span class="fu">gam</span>(score <span class="sc">~</span> Machine <span class="sc">+</span> <span class="fu">s</span>(Worker,<span class="at">bs=</span><span class="st">&quot;re&quot;</span>) <span class="sc">+</span> <span class="fu">s</span>(Machine,Worker,<span class="at">bs=</span><span class="st">&quot;re&quot;</span>),<span class="at">data=</span>Machines,<span class="at">method=</span><span class="st">&quot;REML&quot;</span>)</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(b1)</span></code></pre></div>
+<pre><code>## 
+## Family: gaussian 
+## Link function: identity 
+## 
+## Formula:
+## score ~ Machine + s(Worker, bs = &quot;re&quot;) + s(Machine, Worker, bs = &quot;re&quot;)
+## 
+## Parametric coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)   52.356      2.486  21.062  &lt; 2e-16 ***
+## MachineB       7.967      2.177   3.660 0.000799 ***
+## MachineC      13.917      2.177   6.393 2.02e-07 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Approximate significance of smooth terms:
+##                      edf Ref.df    F  p-value    
+## s(Worker)          4.141      5 8502 0.000487 ***
+## s(Machine,Worker) 10.623     15  595 0.300410    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## R-sq.(adj) =  0.986   Deviance explained =   99%
+## -REML = 107.84  Scale est. = 0.92463   n = 54</code></pre>
 </div>
 </div>
 </div>
