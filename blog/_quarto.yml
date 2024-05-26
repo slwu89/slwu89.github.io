@@ -1,0 +1,20 @@
+project:
+  type: website
+
+website:
+  title: "Stream of consciousness"
+  navbar:
+    right:
+      - href: index.qmd
+        text: Home
+      - href: blog.qmd
+        text: Blog
+      - icon: github
+        href: https://github.com/slwu89
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+
+
+

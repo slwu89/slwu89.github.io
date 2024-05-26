@@ -1,0 +1,20 @@
+---
+title: "About"
+image: assets/profile.png
+about:
+  template: jolla
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/slwu89/
+    - text: Google Scholar
+      href: https://scholar.google.com/citations?user=LovpXkAAAAAJ&hl=en
+    - icon: github
+      text: Github
+      href: https://github.com/slwu89
+
+---
+
+My name is Sean Lawrence Wu (吳瑞華). I am a former academic researcher currently working in industry. My main research interests are in designing systems to better facilitate the design, implementation, extension, and sharing of complex models for process optimization, data modeling, and simulation. Please see my [LinkedIn](https://www.linkedin.com/in/slwu89/) for the boring CV details, and check out my [Google Scholar](https://scholar.google.com/citations?user=LovpXkAAAAAJ&hl=en) for things I've been a part of publishing.
+
+I enjoy reading, archery, cooking, karaoke, exercise and staying healthy, learning languages, and watching lots of [movies & dramas](https://mydramalist.com/dramalist/yukiookami29). I am bilingual in English and Mandarin Chinese, conversational in Cantonese, learning Taiwanese, and vaguely recall college Japanese.
