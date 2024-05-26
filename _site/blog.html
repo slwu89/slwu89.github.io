@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-05-26">
 
-<title>Stream of consciousness – Jdrama review: Bayside Shakedown (踊る大捜査線)</title>
+<title>Thoughts about nothing in particular – blog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,22 +23,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../../">
-<script src="../../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,20 +68,78 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
 
-<link rel="stylesheet" href="../../../styles.css">
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../../index.html">
-    <span class="navbar-title">Stream of consciousness</span>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Thoughts about nothing in particular</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -90,11 +149,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../index.html"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../blog.html"> 
+    <a class="nav-link active" href="./blog.html" aria-current="page"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item compact">
@@ -112,57 +171,77 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">Jdrama review: Bayside Shakedown (踊る大捜査線)</h1>
-                                <div class="quarto-categories">
-                <div class="quarto-category">jdrama</div>
-                <div class="quarto-category">media</div>
-              </div>
-                  </div>
+    <div class="quarto-title column-page-left">
+      <h1 class="title">blog</h1>
+                      </div>
   </div>
     
   
-  <div class="quarto-title-meta">
+  <div class="quarto-title-meta column-page-left">
 
       
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">May 26, 2024</p>
-      </div>
-    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div><div class="category" data-category="jdrama">jdrama <span class="quarto-category-count">(1)</span></div><div class="category" data-category="media">media <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
 
 
 
 
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="cast.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
+
+
+
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="jdrama,media" data-listing-date-sort="1716706800000" data-listing-file-modified-sort="1716752967114" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="938">
+<div class="thumbnail">
+<p><a href="./posts/2024/5-26-bayside/index.html" class="no-external"></a></p><a href="./posts/2024/5-26-bayside/index.html" class="no-external">
+<p class="card-img-top"><img src="posts/2024/5-26-bayside/cast.jpeg" style="height: 0;"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./posts/2024/5-26-bayside/index.html" class="no-external"></a></p>
 </div>
-<p>Recently, after watching the sadly disappointing <a href="https://mydramalist.com/722595-copycat-killer">Copycat Killer (模仿犯)</a>, I was on the hunt for a good detective story. Japanese detective novels are nearly legendary in the Sinosphere (it is the dream of many hopeful Chinese writers of detective novels to one day have their work translated and published in Japanese magazines or anthologies), so I thought I would see what the Jdrama world could offer. A bit of research led to the discovery of the 1997 Fuji TV produced “Bayside Shakedown (踊る大捜査線)”, or, in Chinese, commonly 大搜查線. Although I went on the hunt with the intention of finding a detective piece, what I found was an obviously landmark work in the police procedural drama genre. Many of the common tropes of later Japanese police procedurals were clearly established here. The link for the show’s <a href="https://mydramalist.com/965-odoru-daisousasen">Mydramalist entry is here</a> and the <a href="https://movie.douban.com/subject/1984851/">Douban entry is here</a>.</p>
-<p>The main character of Bayside Shakedown is Aoshima, played by the handsome Oda Yuji, a former top salesman at a computer company who became disillusioned with the pursuit of corporate KPIs and left to join the police force, beginning as a lowly beat cop manning the ubiqutious <a href="https://en.wikipedia.org/wiki/K%C5%8Dban">koban</a> (neighborhood police booths), working his way up to joining the ranks of detectives at a jurisdictional police department, the fictional Wangan Police Department (after the Wangan region of Tokyo Bay), which is the point where we meet our man and begin to follow Aoshima and his colleagues over 11 episodes.</p>
-<p>Aoshima is the typical red-blooded rookie who wants to arrest criminals and do it in style (I guess his years in the koban didn’t erase those aspirations). However he arrives in a mildly Kafkaesque atmosphere where the detective section chief is more interested in sneaking out for a round of golf during the day than chasing crooks, and where he finds that taking a patrol car would require completion of a rental form as well as the written approval of the chief and his section chief. Emergency usage requires the additional completion of an emergency use form. After getting report of an office building murder in the district, Aoshima is sent by a disturbingly nonchalant chief to check it out. Upon arrival, however, he is completely stymied by the “career officers” of the (Tokyo) Metropolitan Police Department, who seem to operate at a higher level of both authority and boorish arrogance than the lowly “jurisdictional” officers. In the process he is introduced to Muroi, a career officer on the fast track to promotion who believes in breaking down the bureaucratic walls that divive the jurisdictional and career forces, much to the dismay and outright anger of his colleagues, tempered only by his intense competence.</p>
-<p>The contrast between Muroi and Aoshima, and their developing bromance, is one of the main themes of the drama. Aohima uses unconventional methods to do what he percieves to be the right thing, often relying on his former charisma and negotiation skills he honed as a salesman, often to comedic effect. Muroi plays the archtypical “straight cop”, his face permanatly twisted into a frown, who is convinced of the imperative to only effect change from within the system. The writers had the subtly to treat the situation realistically, and only a combination of Aoshima’s outside the lines methods and Muroi’s by-the-book techniques can make progress on the heavier cases that come as the plot advances from case to case. Indeed, neither character can escape the consequences of their actions, and the drama presents the conflict between duty and personal obligation well, resulting in a meaningful finale and with real stakes at play for both characters.</p>
-<p>The supporting cast is in general, sympathetic, and the acting is always better than average, avoiding the overly “soapy” feel of other drams of the era. Sumire is a competent, calm female detective whose quiet pride in work well done, even for “insignificant” cases, is a good foil for Aoshima’s enthuasiasm. Waku, the senior detective on the verge of retirement is the old hand and is played with the talent of an experienced master. Although filmed and set in the late 1990s, the female characters are handled well, and I did not get the uncomfortable feeling of male writers writing ideal female characters to the detriment of believability or respect. One of the early “victims”, Yukino, initally seems to be veering into the common bedridden woman trope, which is skilfully changed as she becomes a strong secondary character as the show progresses.</p>
-<p>The drama has a good balance between seriousness and comedy, and the comedy is never too over-the-top. The situational comedy (Muroi coming to pick up the unsuspecting Aoshima in a helicopter is particularly funny). The general vibe of the show moves on a gradient from more comedic to more emotional as the show progresses. The finale, where a colleague’s life hangs in the balance after a shooting by an armed and on-the-run suspect, is handled with an appropriate amount of gravitas. There is a scene in which the typically bumbling senior chiefs of the Wangan department unlock the weapons locker to arm the cast, which well conveys the depth of their concern and is part of the carthartic end of the series. I got goosebumps.</p>
-<p>If one is willing to accept the fuzzy, low-res 1997 quality, one will find plenty of things to like in this surprisingly touching police procedural. If I must think of a shortcoming, it is the limited character development. While Aoshima and Muroi do experience some changes over the course of the drama, it is limited (perhaps hard to have a lot in only 11 episodes)</p>
-
-
-
-</main> <!-- /main -->
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/2024/5-26-bayside/index.html" class="no-external">Jdrama review: Bayside Shakedown (踊る大捜査線)</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/2024/5-26-bayside/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('jdrama'); return false;">
+jdrama
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('media'); return false;">
+media
+</div>
+</div>
+<div class="listing-description">
+<a href="./posts/2024/5-26-bayside/index.html" class="no-external">Recently, after watching the sadly disappointing Copycat Killer (模仿犯), I was on the hunt for a good detective story. Japanese detective novels are nearly legendary in the…</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/2024/5-26-bayside/index.html" class="no-external">
+<div class="listing-date">
+May 26, 2024
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
